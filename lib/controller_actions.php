@@ -12,8 +12,10 @@ function get($file_id){
         echo "File not found";
         return;
     }
-    $path = $file_data['path'];
-    $filecheck = sendRequest("files.my/checkFile?id=$file_id&path=$path",'GET',null,null);
+    $exp = explode ("//",$file_data['path']);
+    $server = $exp[0];
+    $path = $exp[1];
+    $filecheck = sendRequest("$server/checkFile?id=$file_id&path=$path",'GET',null,null);
     switch ($filecheck['status']){
         case 'error':
             echo $filecheck['message'];
@@ -23,7 +25,7 @@ function get($file_id){
             break;
         case 'nolink':
            $link = generateLink($file_id);
-           $linkcheck = sendRequest("files.my/saveTempLink?path=$path&link=$link",'GET',null,null);
+           $linkcheck = sendRequest("$server/saveTempLink?path=$path&link=$link",'GET',null,null);
            if ($linkcheck['status'] == "error"){
                echo $linkcheck['message'];
                return;
