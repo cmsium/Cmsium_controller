@@ -33,7 +33,7 @@ function get($file_id){
            break;
     }
     //$host_url = Config::get('host_url');
-    echo "<a href=\"http://files.my/getFile?link=".$link."\">скачать</a>";
+    echo "<a href=\"http://$server/getFile?link=".$link."\">скачать</a>";
     return;
 }
 
