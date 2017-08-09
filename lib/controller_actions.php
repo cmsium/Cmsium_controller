@@ -1,16 +1,20 @@
 <?php
 
-function get($file_id){
-    $validator = Validator::getInstance();
-    $file_id = $validator->Check('Md5Type',$file_id,[]);
-    if ($file_id === false){
-        echo "Wrong file id";
-        return;
-    }
-    $file_data = getFileData($file_id);
-    if (!$file_data){
-        echo "File not found";
-        return;
+function get($file_id,$return = false){
+    if (!$return) {
+        $validator = Validator::getInstance();
+        $file_id = $validator->Check('Md5Type', $file_id, []);
+        if ($file_id === false) {
+            echo "Wrong file id";
+            return;
+        }
+        $file_data = getFileData($file_id);
+        if (!$file_data){
+            echo "File not found";
+            return;
+        }
+    } else{
+        $file_data = $return;
     }
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
@@ -32,9 +36,52 @@ function get($file_id){
            }
            break;
     }
-    //$host_url = Config::get('host_url');
-    echo "<a href=\"http://$server/getFile?link=".$link."\">скачать</a>";
-    return;
+    $link = "<a href=\"http://$server/getFile?link=".$link."\">скачать</a>";
+    if ($return)
+        return $link;
+    else {
+        echo $link;
+        return;
+    }
+}
+
+function create() {
+    $path = ROOTDIR.'/testdummy.txt';
+    $name = 'testdummy.txt';
+    $owner_user_id = 'eeec1e618690fba21fd416df610da961';
+
+    $server = DefineServer();
+    $response = SendFile($server.'/generateFileId',$path);
+    switch ($response['status']){
+        case 'error':
+            echo $response['message'];
+            return;
+        case 'ok':
+            $file_id = $response['id'];
+    }
+    if ($data = getFileData($file_id)){
+        echo "File already exists: ".get($file_id,$data);
+        return;
+    } else {
+        $created_at = date('Y-m-d H:i:s');
+        $file_name = generateFileName($file_id,$created_at,$name);
+        $response = SendFile($server."/createFile?file_name=$file_name",$path);
+        switch ($response['status']){
+            case 'error':
+                echo $response['message'];
+                return;
+            case 'ok':
+                $file_path = $response['path'];
+        }
+        if (createFile($file_id,$name,$owner_user_id,$file_path)){
+            echo $file_id;
+        } else {
+            $path = explode('//',$path)[1];
+            sendRequest("$server/deleteFile?path=$path",'GET',null,null);
+            echo "Create file error";
+        }
+    }
+
 }
 
 /*
@@ -100,58 +147,7 @@ function link($link){
  *Create new file using file create page
  */
 /*
-function create($file_column_name = false) {
-    if (!$file_column_name)
-        $file_column_name = 'userfile';
-    if (isset($_FILES[$file_column_name]) and !empty($_FILES[$file_column_name]['name'])) {
-        $auth = AuthHandler::getInstance();
-        $auth->check();
-        $validator = Validator::getInstance();
-        $file_data = $validator->ValidateAllByMask($_FILES[$file_column_name], 'fileUploadMask');
-        if (!$file_data) {
-            ErrorHandler::throwException(FILE_UPLOAD_ERROR,'page');
-        }
-        $file = new fileslib(['name'=>$file_data['name'],'tmp_path'=>$_FILES[$file_column_name]['tmp_name']]);
-        if (!$file->checkMime()) {
-            ErrorHandler::throwException(FILE_UPLOAD_ERROR, 'page');
-        }
-        $size = filesize($_FILES[$file_column_name]['tmp_name']);
-        if (($file_data["size"] > MAX_FILE_UPLOAD_SIZE) or ($size > MAX_FILE_UPLOAD_SIZE)) {
-            ErrorHandler::throwException(FILE_SIZE_ERROR,'page');
-        }
-        $id = $file->generateId();
-        $this->last_file_id = $id;
-        $conn = DBConnection::getInstance();
-        $conn->startTransaction();
-        if (!$file->createFile()){
-            $conn->rollback();
-            ErrorHandler::throwException(FILE_UPLOAD_ERROR,'page');
-        }
-        if (!$file->createFileRoles()){
-            $conn->rollback();
-            ErrorHandler::throwException(FILE_UPLOAD_ERROR,'page');
-        }
-        $file_name = $file->getFileFromBase();
-        if (!$file->makeThumbnail()){
-            $conn->rollback();
-            ErrorHandler::throwException(FILE_UPLOAD_ERROR,'page');
-        }
-        if ($file->upload(STORAGE.$file_name)) {
-            $file->addToZip();
-            $conn->commit();
-            return $id;
-            //ErrorHandler::throwException(FILE_UPLOAD_SUCCESS,'page');
-        } else {
-            $conn->rollback();
-            ErrorHandler::throwException(FILE_UPLOAD_ERROR,'page');
-        }
-        unset($file);
-        unset($conn);
 
-    } else{
-        return NULL;
-    }
-}
 
 
 

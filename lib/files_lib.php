@@ -173,7 +173,7 @@ function checkActionRoles($action,$permissions){
  */
 function createFile($file_id,$name,$owner_user_id,$path){
     $conn = DBConnection::getInstance();
-    $query = "CALL createFile('$file_id','$name','$owner_user_id','$path',". 0 ." );";
+    $query = "CALL createControllerFile('$file_id','$name','$owner_user_id','$path');";
     return $conn->performQuery($query);
 }
 
@@ -255,6 +255,9 @@ function checkIntegrity($file_id,$path){
     return ($file_id == md5_file($path));
 }
 
-function testEcho($msg){
-    echo "Hello $msg";
+function generateFileName($id,$create_at,$name){
+    return md5($id.$create_at.$name);
+}
+function DefineServer(){
+    return "files.local";
 }
