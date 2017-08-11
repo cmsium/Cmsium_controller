@@ -6,12 +6,12 @@ function get($file_id,$return = false){
         $file_id = $validator->Check('Md5Type', $file_id, []);
         if ($file_id === false) {
             echo "Wrong file id";
-            return;
+            exit;
         }
         $file_data = getFileData($file_id);
         if (!$file_data){
             echo "File not found";
-            return;
+            exit;
         }
     } else{
         $file_data = $return;
@@ -23,7 +23,7 @@ function get($file_id,$return = false){
     switch ($filecheck['status']){
         case 'error':
             echo $filecheck['message'];
-            return;
+            exit;
         case 'link':
             $link = $filecheck['link'];
             break;
@@ -32,7 +32,7 @@ function get($file_id,$return = false){
            $linkcheck = sendRequest("$server/saveTempLink?path=$path&link=$link",'GET',null,null);
            if ($linkcheck['status'] == "error"){
                echo $linkcheck['message'];
-               return;
+               exit;
            }
            break;
     }
@@ -46,42 +46,115 @@ function get($file_id,$return = false){
 }
 
 function create() {
-    $path = ROOTDIR.'/testdummy.txt';
-    $name = 'testdummy.txt';
+    //TODO auth token check
     $owner_user_id = 'eeec1e618690fba21fd416df610da961';
 
+    if (!empty($_FILES)) {
+        $validator = Validator::getInstance();
+        $file_data = $validator->ValidateAllByMask($_FILES['userfile'], 'fileUploadMask');
+        if ($file_data === false) {
+            var_dump($validator->getErrors());
+            echo "Wrong file format";
+            exit;
+        }
+        if (!checkMime($_FILES['userfile']['tmp_name'])) {
+            echo "Wrong file type";
+            exit;
+        }
+        $size = filesize($_FILES['userfile']['tmp_name']);
+        if (($file_data["size"] > MAX_FILE_UPLOAD_SIZE) or ($size > MAX_FILE_UPLOAD_SIZE)) {
+            echo "File is too large";
+            exit;
+        }
+    } else {
+        echo "No file sent";
+        exit;
+    }
+    $path = $_FILES['userfile']['tmp_name'];
+    $name = $_FILES['userfile']['name'];
     $server = DefineServer();
-    $response = SendFile($server.'/generateFileId',$path);
+    $response = SendFile($server.'/generateFileId',$path,$name);
     switch ($response['status']){
         case 'error':
             echo $response['message'];
-            return;
+            print_r($response);
+            exit;
         case 'ok':
             $file_id = $response['id'];
     }
     if ($data = getFileData($file_id)){
         echo "File already exists: ".get($file_id,$data);
-        return;
+        exit;
     } else {
         $created_at = date('Y-m-d H:i:s');
         $file_name = generateFileName($file_id,$created_at,$name);
-        $response = SendFile($server."/createFile?file_name=$file_name",$path);
+        $response = SendFile($server."/createFile?file_name=$file_name",$path,$name);
         switch ($response['status']){
             case 'error':
                 echo $response['message'];
-                return;
+                exit;
             case 'ok':
                 $file_path = $response['path'];
         }
         if (createFile($file_id,$name,$owner_user_id,$file_path)){
             echo $file_id;
+            return;
         } else {
             $path = explode('//',$path)[1];
             sendRequest("$server/deleteFile?path=$path",'GET',null,null);
             echo "Create file error";
         }
     }
+}
 
+function delete($file_id){
+    $validator = Validator::getInstance();
+    $file_id = $validator->Check('Md5Type', $file_id, []);
+    if ($file_id === false) {
+        echo "Wrong file id";
+        exit;
+    }
+    $file_data = getFileData($file_id);
+    if (!$file_data){
+        echo "File not found";
+        exit;
+    }
+    $exp = explode ("//",$file_data['path']);
+    $server = $exp[0];
+    $path = $exp[1];
+    $delete_status = sendRequest("$server/deleteFile?path=$path",'GET',null,null);
+    switch ($delete_status['status']){
+        case 'ok':
+            if(!deleteFile($file_id)){
+                echo "Delete file error";
+                exit;
+            }
+            echo "Delete success";
+            return;
+        case 'error':
+            echo $delete_status['message'];
+            exit;
+    }
+}
+
+function update($file_id){
+    delete($file_id);
+    create();
+}
+
+function testFileForm(){
+    $server = Config::get('host_url');
+    echo "
+<html>
+    <body>
+        <form action='http://$server/create' method='post' enctype=\"multipart/form-data\">
+            <input type='file' name='userfile'>
+            <input type='submit'>
+        </form>
+    </body>
+</html>
+";
+    return;
 }
 
 /*
@@ -122,93 +195,5 @@ function preview($link){
     unset($file);
 }
 
-/**
- * Get requested file by temporary link
- *
- * @param string $link Temporary link
- */
-/*
-function link($link){
-    $validator = Validator::getInstance();
-    $link = $validator->Check('Md5Type',$link,[]);
-    if (!$link)
-        ErrorHandler::throwException(DATA_FORMAT_ERROR,"page");
-    $file = new fileslib(['link'=>$link]);
-    $file->getFileIdByLink();
-    $file->checkFileRoles('r');
-    $file->getFileFromBase();
-    $file->deleteLink();
-    $file->renderFile();
-    unset($file);
-}
-
-
-/**
- *Create new file using file create page
- */
-/*
-
-
-
-
-
-/**
- * Delete file from system by id
- *
- * @param string $file_id File id
- */
-/*
-function delete($file_id){
-    if (!isset($file_id))
-        return true;
-        //ErrorHandler::throwException(FILE_PARAM_ABSENT, "page");
-    $validator = Validator::getInstance();
-    $file_id = $validator->Check('Md5Type',$file_id,[]);
-    if (!$file_id)
-        ErrorHandler::throwException(DATA_FORMAT_ERROR);
-    $file = new fileslib(['id'=>$file_id]);
-    $file->checkFileRoles('d');
-    $file_name = $file->getFileFromBase();
-    $conn = DBConnection::getInstance();
-    $conn->startTransaction();
-    if (!$file->deleteLink()) {
-        $conn->rollback();
-        ErrorHandler::throwException(FILE_DELTE_BASE_ERROR,'page');
-    }
-    if (!$file->deleteFile()) {
-        $conn->rollback();
-        ErrorHandler::throwException(FILE_DELTE_BASE_ERROR,'page');
-    }
-    if (!$file->deleteFileRoles()) {
-        $conn->rollback();
-        ErrorHandler::throwException(FILE_DELTE_BASE_ERROR,'page');
-    }
-    if (!unlink(STORAGE.$file_name.'.zip')){
-        $conn->rollback();
-        ErrorHandler::throwException(FILE_DELTE_ERROR,'page');
-    }
-    @unlink(ROOTDIR . "/images/previews/".$file_name.'.png');
-    $conn->commit();
-    unset($file);
-    unset($conn);
-    return true;
-    //ErrorHandler::throwException(FILE_DELTE_SUCCESS,'page');
-}
-
-
-
-/**
- * Update current file
- *
- * @param string $old_file_id Updated file id
- * @param string $new_file_column_name New file column name from FILES
- * @return null|string Update status (new file id if success)
- */
-/*
-function update($old_file_id, $new_file_column_name){
-    if (!empty($old_file_id))
-        $this->delete($old_file_id);
-    return $this->create($new_file_column_name);
-}
 */
 

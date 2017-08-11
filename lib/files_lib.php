@@ -184,17 +184,7 @@ function createFile($file_id,$name,$owner_user_id,$path){
  */
 function deleteFile($file_id){
     $conn = DBConnection::getInstance();
-    $query = "CALL deleteFile('$file_id');";
-    return $conn->performQuery($query);
-}
-
-/**
- * Delete file link from base
- * @return mixed Delete status
- */
-function deleteLink($path){
-    $conn = DBConnection::getInstance();
-    $query = "CALL deleteLinkByFileId('$path');";
+    $query = "CALL deleteControllerFile('$file_id');";
     return $conn->performQuery($query);
 }
 
@@ -220,27 +210,6 @@ function createFilePermissions($file_id,$user,$permissions){
 }
 
 
-/**
- * Check file link existence
- * @return mixed Associated with link file path|false
- */
-function checkLink($link){
-    $conn = DBConnection::getInstance();
-    $query = "CALL checkFileLink('$link');";
-    return $conn->performQuery($query);
-}
-
-/**
- * Get temporary link by file
- *
- * @return mixed Temporary link(hashed string)|false
- */
-function getLink($path){
-    $conn = DBConnection::getInstance();
-    $query = "CALL checkFileLink('$path');";
-    return  $conn->performQueryFetch($query);
-}
-
 function generateLink($file_id){
     return md5($file_id.time());
 }
@@ -256,8 +225,15 @@ function checkIntegrity($file_id,$path){
 }
 
 function generateFileName($id,$create_at,$name){
-    return md5($id.$create_at.$name);
+    $ext = @end(explode('.',$name));
+    return md5($id.$create_at.$name).".$ext";
 }
 function DefineServer(){
-    return "files.local";
+    $server = Config::get('service_url');
+    $result = sendRequest("$server/chooseFileServer",'GET',null,null);
+    if ($result['status'] == 'error'){
+        echo "File servers error";
+        exit;
+    }
+    return $result['server'];
 }
