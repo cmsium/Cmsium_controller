@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/database/Migration.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/database/MigrationHistoryHandler.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/create_db.php" afterPath="$PROJECT_DIR$/support/migration_tool/create_db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/drop_db.php" afterPath="$PROJECT_DIR$/support/migration_tool/drop_db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/migrate.php" afterPath="$PROJECT_DIR$/support/migration_tool/migrate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/rollback.php" afterPath="$PROJECT_DIR$/support/migration_tool/rollback.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -100,7 +94,7 @@
       <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
+            <state relative-caret-position="2060">
               <caret line="103" column="73" lean-forward="false" selection-start-line="103" selection-start-column="71" selection-end-line="103" selection-end-column="73" />
               <folding>
                 <marker date="1502461605311" expanded="true" signature="4331:4552" ph="..." />
@@ -166,7 +160,7 @@
         <entry file="file://$PROJECT_DIR$/support/migration_tool/rollback.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="8" column="51" lean-forward="true" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+              <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -175,7 +169,7 @@
       <file leaf-file-name="files_lib.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
+            <state relative-caret-position="4360">
               <caret line="218" column="30" lean-forward="false" selection-start-line="218" selection-start-column="19" selection-end-line="218" selection-end-column="30" />
               <folding />
             </state>
@@ -353,8 +347,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -488,17 +482,18 @@
       <workItem from="1502289059553" duration="11000" />
       <workItem from="1502358687419" duration="257000" />
       <workItem from="1502363614124" duration="10350000" />
-      <workItem from="1502446510391" duration="9056000" />
+      <workItem from="1502446510391" duration="9628000" />
+      <workItem from="1502886531229" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60256000" />
+    <option name="totallyTimeSpent" value="61427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28081813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2841349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -605,19 +600,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testdummy.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/testdummy.txt" />
     <entry file="dbDummy://dbtable:/60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -626,19 +613,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/support/support/migration_tool/drop_db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/support/support/migration_tool/drop_db.php" />
     <entry file="file://$PROJECT_DIR$/support/migration_tool/generate_migration.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,23 +625,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-29_add_service_tables_and_procedures/up.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-29_add_service_tables_and_procedures/up.sql" />
     <entry file="dbSrc:///60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/createControllerFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,7 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -748,7 +714,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="4360">
           <caret line="218" column="30" lean-forward="false" selection-start-line="218" selection-start-column="19" selection-end-line="218" selection-end-column="30" />
           <folding />
         </state>
@@ -756,7 +722,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
+        <state relative-caret-position="2060">
           <caret line="103" column="73" lean-forward="false" selection-start-line="103" selection-start-column="71" selection-end-line="103" selection-end-column="73" />
           <folding>
             <marker date="1502461605311" expanded="true" signature="4331:4552" ph="..." />
@@ -810,7 +776,7 @@
     <entry file="file://$PROJECT_DIR$/support/migration_tool/rollback.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="8" column="51" lean-forward="true" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
           <folding />
         </state>
       </provider>
