@@ -83,6 +83,7 @@ function create() {
             $file_id = $response['id'];
     }
     if ($data = getFileData($file_id)){
+        echo $file_id;
         echo "File already exists: ".get($file_id,$data);
         exit;
     } else {
