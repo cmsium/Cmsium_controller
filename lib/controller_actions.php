@@ -1,6 +1,7 @@
 <?php
 
 function get($file_id,$return = false){
+    //TODO auth token check
     if (!$return) {
         $validator = Validator::getInstance();
         $file_id = $validator->Check('Md5Type', $file_id, []);
@@ -16,6 +17,13 @@ function get($file_id,$return = false){
     } else{
         $file_data = $return;
     }
+
+    $user_id = 'eeec1e618690fba21fd416df610da961';
+    if (!checkPermissions($user_id,$file_data)){
+        echo "Permission denied";
+        exit;
+    }
+
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
     $path = $exp[1];
@@ -109,6 +117,7 @@ function create() {
 }
 
 function delete($file_id){
+    //TODO auth token check
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type', $file_id, []);
     if ($file_id === false) {
@@ -120,6 +129,13 @@ function delete($file_id){
         echo "File not found";
         exit;
     }
+
+    $user_id = 'eeec1e618690fba21fd416df610da961';
+    if (!checkPermissions($user_id,$file_data)){
+        echo "Permission denied";
+        exit;
+    }
+
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
     $path = $exp[1];

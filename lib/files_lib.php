@@ -237,3 +237,10 @@ function DefineServer(){
     }
     return $result['server'];
 }
+
+function checkPermissions($user_id,$file_data,$role = false){
+    if ($role and $role == "admin"){
+        return true;
+    }
+    return $user_id == $file_data['owner_id'];
+}
