@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connection.php" afterPath="$PROJECT_DIR$/lib/connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controller_actions.php" afterPath="$PROJECT_DIR$/lib/controller_actions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/database/Migration.php" afterPath="$PROJECT_DIR$/lib/database/Migration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/files_lib.php" afterPath="$PROJECT_DIR$/lib/files_lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/create_db.php" afterPath="$PROJECT_DIR$/support/migration_tool/create_db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/drop_db.php" afterPath="$PROJECT_DIR$/support/migration_tool/drop_db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/migrate.php" afterPath="$PROJECT_DIR$/support/migration_tool/migrate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/migration_history.csv" afterPath="$PROJECT_DIR$/support/migration_tool/migration_history.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/down.sql" afterPath="$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/down.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/up.sql" afterPath="$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/up.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support/migration_tool/rollback.php" afterPath="$PROJECT_DIR$/support/migration_tool/rollback.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +20,30 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand />
+    <expand>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="controller@localhost" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="controller@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="controller" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="controller@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="controller" type="e3449647:DbNodeDescriptor" />
+        <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="controller@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="controller" type="e3449647:DbNodeDescriptor" />
+        <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
+        <item name="controller_files" type="e3449647:DbNodeDescriptor" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
@@ -39,39 +51,22 @@
       <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="720">
+              <caret line="46" column="91" lean-forward="false" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
+              <folding>
+                <marker date="1504002590730" expanded="true" signature="4755:4976" ph="..." />
+                <marker date="1504002590730" expanded="true" signature="4766:4968" ph="..." />
+                <marker date="1504002590730" expanded="true" signature="4858:4956" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+      <file leaf-file-name="controller_files" pinned="false" current-in-tab="true">
+        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -119,8 +114,8 @@
         <option value="$PROJECT_DIR$/support/migration_tool/migrate.php" />
         <option value="$PROJECT_DIR$/support/migration_tool/rollback.php" />
         <option value="$PROJECT_DIR$/config/config.ini" />
-        <option value="$PROJECT_DIR$/lib/controller_actions.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/lib/controller_actions.php" />
       </list>
     </option>
   </component>
@@ -307,20 +302,20 @@
       <workItem from="1502886531229" duration="2458000" />
       <workItem from="1502966176488" duration="660000" />
       <workItem from="1503938801935" duration="792000" />
+      <workItem from="1504000431888" duration="2197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64738000" />
+    <option name="totallyTimeSpent" value="66935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21835268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22111663" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -349,7 +344,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.files" />
     <entry file="file://$PROJECT_DIR$/lib/database/Config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -554,14 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -583,6 +569,25 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="46" column="91" lean-forward="false" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
+          <folding>
+            <marker date="1504002590730" expanded="true" signature="4755:4976" ph="..." />
+            <marker date="1504002590730" expanded="true" signature="4766:4968" ph="..." />
+            <marker date="1504002590730" expanded="true" signature="4858:4956" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

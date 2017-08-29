@@ -44,7 +44,7 @@ function get($file_id,$return = false){
            }
            break;
     }
-    $link = "<a href=\"http://$server/getFile?link=".$link."\">скачать</a>";
+    $link = "<a href=\"http://$server/getFile?link=".$link."&name=".$file_data['file_name']."\">скачать</a>";
     if ($return)
         return $link;
     else {
