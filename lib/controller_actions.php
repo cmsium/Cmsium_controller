@@ -114,27 +114,46 @@ function delete($file_id){
         exit;
     }
 
+    if(!deleteFile($file_id)){
+        echo "Delete file error";
+        exit;
+    }
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
     $path = $exp[1];
     $delete_status = sendRequest("$server/deleteFile?path=$path",'GET',null,null);
     switch ($delete_status['status']){
-        case 'ok':
-            if(!deleteFile($file_id)){
-                echo "Delete file error";
-                exit;
-            }
-            echo "Delete success";
-            return;
         case 'error':
             echo $delete_status['message'];
             exit;
     }
+    echo "Delete success";
+    return;
+
 }
 
 function update($file_id){
     delete($file_id);
-    create();
+    //create($file_id);
+}
+
+function getAllFiles($columns){
+    $validator = Validator::getInstance();
+    $columns = $validator->Check('DotValues', $columns, []);
+    if ($columns === false) {
+        echo json_encode(["status" => "error", "message" => 'Wrong columns format']);
+        exit;
+    }
+    $conn = DBConnection::getInstance();
+    $columns = implode(',',explode('.',$columns));
+    $query = "SELECT $columns from controller_files;";
+    $data = $conn->performQueryFetchAll($query);
+    if (!$data){
+        echo json_encode(["status" => "error", "message" => 'Sql error']);
+        exit;
+    }
+    echo json_encode(array_merge(["status" => "ok"],$data));
+    return;
 }
 
 /*

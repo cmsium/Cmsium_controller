@@ -545,6 +545,23 @@ class Types{
         return false;
     }
 
+    public static function DotValues($value, $props)
+    {
+        $pattern = "/^([\d\w_]*.?)+$/";
+        if (self::Preg($pattern, $value))
+            switch ($props['output']) {
+                case 'string':
+                    return $value;
+                    break;
+                case 'md5':
+                    return md5($value);
+                    break;
+                default:
+                    return $value;
+            }
+        return false;
+    }
+
 
     /**
      *Проверяет на совпадение со строкой из списка
