@@ -2,13 +2,13 @@
 
 function get($file_id,$return = false){
     //TODO auth token check
+    $validator = Validator::getInstance();
+    $file_id = $validator->Check('Md5Type', $file_id, []);
+    if ($file_id === false) {
+        echo "Wrong file id";
+        exit;
+    }
     if (!$return) {
-        $validator = Validator::getInstance();
-        $file_id = $validator->Check('Md5Type', $file_id, []);
-        if ($file_id === false) {
-            echo "Wrong file id";
-            exit;
-        }
         $file_data = getFileData($file_id);
         if (!$file_data){
             echo "File not found";
@@ -53,65 +53,43 @@ function get($file_id,$return = false){
     }
 }
 
-function create() {
+function create($file_id,$path) {
     //TODO auth token check
     $owner_user_id = 'eeec1e618690fba21fd416df610da961';
 
-    if (!empty($_FILES)) {
-        $validator = Validator::getInstance();
-        $file_data = $validator->ValidateAllByMask($_FILES['userfile'], 'fileUploadMask');
-        if ($file_data === false) {
-            var_dump($validator->getErrors());
-            echo "Wrong file format";
-            exit;
-        }
-        if (!checkMime($_FILES['userfile']['tmp_name'])) {
-            echo "Wrong file type";
-            exit;
-        }
-        $size = filesize($_FILES['userfile']['tmp_name']);
-        if (($file_data["size"] > MAX_FILE_UPLOAD_SIZE) or ($size > MAX_FILE_UPLOAD_SIZE)) {
-            echo "File is too large";
-            exit;
-        }
-    } else {
-        echo "No file sent";
+    $validator = Validator::getInstance();
+    $file_id = $validator->Check('Md5Type',$file_id,[]);
+    if ($file_id === false){
+        echo json_encode(["status" => "error", "message" => "Wrong file id format"]);
         exit;
     }
-    $path = $_FILES['userfile']['tmp_name'];
-    $name = $_FILES['userfile']['name'];
-    $server = DefineServer();
-    $response = SendFile($server.'/generateFileId',$path,$name);
-    switch ($response['status']){
-        case 'error':
-            echo $response['message'];
-            print_r($response);
-            exit;
-        case 'ok':
-            $file_id = $response['id'];
+    $path = $validator->Check('Path',$path,[]);
+    if ($path === false){
+        echo json_encode(["status" => "error", "message" => "Wrong file path format"]);
+        return;
     }
     if ($data = getFileData($file_id)){
-        echo $file_id;
-        echo "File already exists: ".get($file_id,$data);
+        echo json_encode(["status" => "error", "message" => "File already exists: ".get($file_id,$data)]);
         exit;
     } else {
-        $created_at = date('Y-m-d H:i:s');
-        $file_name = generateFileName($file_id,$created_at,$name);
-        $response = SendFile($server."/createFile?file_name=$file_name",$path,$name);
+        $server = DefineServer();
+        $sandbox = Config::get('sandbox_url');
+        $response = sendRequest("$sandbox/copyFile?server=$server&file=$path&id=$file_id",'GET',null,null);
         switch ($response['status']){
             case 'error':
-                echo $response['message'];
+                echo json_encode(["status" => "error", "message" => $response['message']]);
                 exit;
             case 'ok':
-                $file_path = $response['path'];
-        }
-        if (createFile($file_id,$name,$owner_user_id,$file_path)){
-            echo $file_id;
-            return;
-        } else {
-            $path = explode('//',$path)[1];
-            sendRequest("$server/deleteFile?path=$path",'GET',null,null);
-            echo "Create file error";
+                $name = @end(explode('/',$path));
+                if (createFile($file_id,$name,$owner_user_id, $response['file_path'])){
+                    echo json_encode(["status" => "ok", "id" => $file_id]);
+                    return;
+                } else {
+                    $path = explode('//',$response['file_path'])[1];
+                    sendRequest("$server/deleteFile?path=$path",'GET',null,null);
+                    echo json_encode(["status" => "error", "message" => 'File Create error']);
+                    return;
+                }
         }
     }
 }
@@ -157,21 +135,6 @@ function delete($file_id){
 function update($file_id){
     delete($file_id);
     create();
-}
-
-function testFileForm(){
-    $server = Config::get('host_url');
-    echo "
-<html>
-    <body>
-        <form action='http://$server/create' method='post' enctype=\"multipart/form-data\">
-            <input type='file' name='userfile'>
-            <input type='submit'>
-        </form>
-    </body>
-</html>
-";
-    return;
 }
 
 /*

@@ -1,0 +1,21 @@
+<manifest>
+    <service_name>Cmsium_controller</service_name>
+    <methods>
+        <method>
+            <resourse>/</resourse>
+            <auth>all</auth>
+        </method>
+        <method>
+            <resourse>get</resourse>
+            <auth>staff,admin</auth>
+        </method>
+        <method>
+            <resourse>create</resourse>
+            <auth>staff,admin</auth>
+        </method>
+        <method>
+            <resourse>delete</resourse>
+            <auth>staff</auth>
+        </method>
+    </methods>
+</manifest>
