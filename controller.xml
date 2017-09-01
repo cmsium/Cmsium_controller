@@ -10,10 +10,6 @@
             <auth>staff,admin</auth>
         </method>
         <method>
-            <resourse>create</resourse>
-            <auth>staff,admin</auth>
-        </method>
-        <method>
             <resourse>delete</resourse>
             <auth>staff</auth>
         </method>
