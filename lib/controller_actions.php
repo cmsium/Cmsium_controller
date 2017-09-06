@@ -1,7 +1,8 @@
 <?php
 
 function get($file_id,$return = false){
-    //TODO auth token check
+    $user_id = checkAuth();
+
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type', $file_id, []);
     if ($file_id === false) {
@@ -18,7 +19,6 @@ function get($file_id,$return = false){
         $file_data = $return;
     }
 
-    $user_id = 'eeec1e618690fba21fd416df610da961';
     if (!checkPermissions($user_id,$file_data)){
         echo "Permission denied";
         exit;
