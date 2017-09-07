@@ -27,10 +27,16 @@ function checkAuth(){
         exit;
     } else {
         $auth = Config::get('auth_url');
-        $authcheck = sendRequest("$auth/token/check",'POST',null,['token'=>$_COOKIE['token']]);
+        $authcheck = sendRequest("$auth/token/check",'POST','Content-type: application/x-www-form-urlencoded',http_build_query(['token'=>$_COOKIE['token']]));
         switch ($authcheck['is_valid']){
             case true: return $authcheck['user_id'];break;
-            case false: echo "Auth error"; exit;
+            case false:
+                $header = HeadersController::getInstance();
+                $host = Config::get('host_url');
+                $back = urlencode("http://$host".$_SERVER['REQUEST_URI']);
+                $url = "http://$auth?redirect_uri=$back";
+                $header->respondLocation(['value'=>$url]);
+                exit;
         }
     }
 }
