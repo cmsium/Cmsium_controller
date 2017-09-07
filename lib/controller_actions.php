@@ -53,10 +53,7 @@ function get($file_id,$return = false){
     }
 }
 
-function create($file_id,$path) {
-    //TODO auth token check
-    $owner_user_id = 'eeec1e618690fba21fd416df610da961';
-
+function create($file_id,$path,$owner_user_id) {
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type',$file_id,[]);
     if ($file_id === false){
@@ -66,6 +63,11 @@ function create($file_id,$path) {
     $path = $validator->Check('Path',$path,[]);
     if ($path === false){
         echo json_encode(["status" => "error", "message" => "Wrong file path format"]);
+        return;
+    }
+    $owner_user_id = $validator->Check('Md5Type',$owner_user_id,[]);
+    if ($path === false){
+        echo json_encode(["status" => "error", "message" => "Wrong user id format"]);
         return;
     }
     if ($data = getFileData($file_id)){
@@ -95,7 +97,7 @@ function create($file_id,$path) {
 }
 
 function delete($file_id){
-    //TODO auth token check
+    $user_id = checkAuth();
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type', $file_id, []);
     if ($file_id === false) {
@@ -108,7 +110,6 @@ function delete($file_id){
         exit;
     }
 
-    $user_id = 'eeec1e618690fba21fd416df610da961';
     if (!checkPermissions($user_id,$file_data)){
         echo "Permission denied";
         exit;
