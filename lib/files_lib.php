@@ -220,6 +220,12 @@ function getFileData($file_id){
     return  $conn->performQueryFetch($query);
 }
 
+function updateFileData($file_id,$path){
+    $conn = DBConnection::getInstance();
+    $query = "UPDATE controller_files SET path='$path' WHERE file_id='$file_id'";
+    return  $conn->performQuery($query);
+}
+
 function checkIntegrity($file_id,$path){
     return ($file_id == md5_file($path));
 }
