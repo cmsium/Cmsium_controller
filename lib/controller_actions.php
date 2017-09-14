@@ -64,7 +64,7 @@ function create($file_id,$path,$owner_user_id) {
         return;
     }
     $owner_user_id = $validator->Check('Md5Type',$owner_user_id,[]);
-    if ($path === false){
+    if ($owner_user_id === false){
         echo json_encode(["status" => "error", "message" => "Wrong user id format"]);
         return;
     }
@@ -92,7 +92,7 @@ function create($file_id,$path,$owner_user_id) {
                     return;
                 }
             default:
-                echo json_encode(["status" => "error", "message" => $response['message']]);
+                echo json_encode(["status" => "error", "message" => $response['message'].'asd']);
         }
     }
 }
