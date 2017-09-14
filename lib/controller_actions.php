@@ -69,7 +69,7 @@ function create($file_id,$path,$owner_user_id) {
     }
     if ($data = getFileData($file_id)){
         $host_url = Config::get('host_url');
-        echo json_encode(["status" => "error", "message" => "File already exists: <a href='http://$host_url/get?id=$file_id'>"]);
+        echo json_encode(["status" => "error", "message" => "File already exists: <a href='http://$host_url/get?id=$file_id'>скачать</a>"]);
         exit;
     } else {
         $server = DefineServer();
