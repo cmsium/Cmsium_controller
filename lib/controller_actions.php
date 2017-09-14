@@ -38,14 +38,15 @@ function get($file_id,$return = false){
                exit;
            }
            break;
-        default:
-            $link = "here";
     }
-    $link = "<a href=\"http://$server/getFile?link=".$link."&name=".$file_data['file_name']."\">скачать</a>";
-    if ($return)
+    if ($return) {
+        $link = "<a href=\"http://$server/getFile?link=".$link."&name=".$file_data['file_name']."\">скачать</a>";
         return $link;
+    }
     else {
-        echo $link;
+        $header = HeadersController::getInstance();
+        $url = "http://$server/getFile?link=$link&name={$file_data['file_name']}";
+        $header->respondLocation(['value'=>$url]);
         return;
     }
 }
