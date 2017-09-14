@@ -43,6 +43,8 @@ function get($file_id,$return = false){
                exit;
            }
            break;
+        default:
+            $link = "here";
     }
     $link = "<a href=\"http://$server/getFile?link=".$link."&name=".$file_data['file_name']."\">скачать</a>";
     if ($return)
@@ -71,7 +73,7 @@ function create($file_id,$path,$owner_user_id) {
         return;
     }
     if ($data = getFileData($file_id)){
-        echo json_encode(["status" => "error", "message" => "File already exists: "]);/*.get($file_id,$data)])*/
+        echo json_encode(["status" => "error", "message" => "File already exists: ".get($file_id,$data)]);
         exit;
     } else {
         $server = DefineServer();
