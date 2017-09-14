@@ -73,6 +73,8 @@ function create($file_id,$path,$owner_user_id) {
         echo json_encode(["status" => "error", "message" => "File already exists: <a href='http://$host_url/get?id=$file_id'>скачать</a>"]);
         exit;
     } else {
+        echo json_encode(["status" => "error", "message" => $path]);
+        exit;
         $server = DefineServer();
         $sandbox = Config::get('sandbox_url');
         $response = sendRequest("$sandbox/copyFile?server=$server&file=$path&id=$file_id",'GET',null,null);
@@ -92,7 +94,7 @@ function create($file_id,$path,$owner_user_id) {
                     return;
                 }
             default:
-                echo json_encode(["status" => "error", "message" => $response['message'].'asd']);
+                echo json_encode(["status" => "error", "message" => $response['message']]);
         }
     }
 }
