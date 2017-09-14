@@ -71,7 +71,7 @@ function create($file_id,$path,$owner_user_id) {
         return;
     }
     if ($data = getFileData($file_id)){
-        echo json_encode(["status" => "error", "message" => "File already exists: ".get($file_id,$data)]);
+        echo json_encode(["status" => "error", "message" => "File already exists: "]);/*.get($file_id,$data)])*/
         exit;
     } else {
         $server = DefineServer();
