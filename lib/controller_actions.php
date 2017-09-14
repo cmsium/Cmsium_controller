@@ -92,7 +92,7 @@ function create($file_id,$path,$owner_user_id) {
                     return;
                 }
             default:
-                echo json_encode(["status" => "error", "message" => $response]);
+                echo json_encode(["status" => "error", "message" => $response['message']]);
         }
     }
 }
