@@ -52,8 +52,6 @@ function get($file_id,$return = false){
 }
 
 function create($file_id,$path,$owner_user_id) {
-    echo json_encode(["status" => "error", "message" => $path]);
-    exit;
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type',$file_id,[]);
     if ($file_id === false){
