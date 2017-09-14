@@ -92,6 +92,8 @@ function create($file_id,$path,$owner_user_id) {
                     echo json_encode(["status" => "error", "message" => 'File Create error']);
                     return;
                 }
+            default:
+                echo json_encode(["status" => "error", "message" => $response]);
         }
     }
 }
