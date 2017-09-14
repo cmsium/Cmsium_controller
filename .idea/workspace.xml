@@ -50,10 +50,10 @@
       <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            <state relative-caret-position="954">
+              <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
               <folding>
-                <marker date="1505388449568" expanded="true" signature="5730:5767" ph="SELECT ${$co... controller_files" />
+                <marker date="1505391298936" expanded="true" signature="5531:5568" ph="SELECT ${$co... controller_files" />
               </folding>
             </state>
           </provider>
@@ -125,8 +125,8 @@
       <file leaf-file-name="connection.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/connection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+            <state relative-caret-position="206">
+              <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -149,6 +149,7 @@
       <find>mult</find>
       <find>url</find>
       <find>resourse</find>
+      <find>user_id</find>
     </findStrings>
     <replaceStrings>
       <replace>function</replace>
@@ -402,12 +403,12 @@
       <workItem from="1505123476687" duration="599000" />
       <workItem from="1505124546302" duration="4754000" />
       <workItem from="1505301359706" duration="3819000" />
-      <workItem from="1505383697646" duration="2837000" />
+      <workItem from="1505383697646" duration="4969000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112822000" />
+    <option name="totallyTimeSpent" value="114954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -671,14 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -691,12 +684,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="954">
+          <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
           <folding>
-            <marker date="1505388449568" expanded="true" signature="5730:5767" ph="SELECT ${$co... controller_files" />
+            <marker date="1505391298936" expanded="true" signature="5531:5568" ph="SELECT ${$co... controller_files" />
           </folding>
         </state>
       </provider>

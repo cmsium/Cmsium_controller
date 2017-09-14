@@ -1,8 +1,8 @@
 <?php
 
 function get($file_id,$return = false){
-    //$user_id = checkAuth();
-    $user_id = 'eeec1e618690fba21fd416df610da961';
+    checkAuth();
+    //$user_id = 'eeec1e618690fba21fd416df610da961';
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type', $file_id, []);
     if ($file_id === false) {
@@ -17,11 +17,6 @@ function get($file_id,$return = false){
         }
     } else{
         $file_data = $return;
-    }
-
-    if (!checkPermissions($user_id,$file_data)){
-        echo json_encode(["status" => "error", "message" =>"Permission denied"]);
-        exit;
     }
 
     $exp = explode ("//",$file_data['path']);
@@ -73,7 +68,8 @@ function create($file_id,$path,$owner_user_id) {
         return;
     }
     if ($data = getFileData($file_id)){
-        echo json_encode(["status" => "error", "message" => "File already exists: ".get($file_id,$data)]);
+        $host_url = Config::get('host_url');
+        echo json_encode(["status" => "error", "message" => "File already exists: <a href='http://$host_url/get?id=$file_id'>"]);
         exit;
     } else {
         $server = DefineServer();
@@ -112,11 +108,6 @@ function delete($file_id){
     $file_data = getFileData($file_id);
     if (!$file_data){
         echo "File not found";
-        exit;
-    }
-
-    if (!checkPermissions($user_id,$file_data)){
-        echo "Permission denied";
         exit;
     }
 
