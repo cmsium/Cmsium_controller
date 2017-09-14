@@ -1,8 +1,8 @@
 <?php
 
 function get($file_id,$return = false){
-    $user_id = checkAuth();
-    //$user_id = 'eeec1e618690fba21fd416df610da961';
+    //$user_id = checkAuth();
+    $user_id = 'eeec1e618690fba21fd416df610da961';
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type', $file_id, []);
     if ($file_id === false) {
