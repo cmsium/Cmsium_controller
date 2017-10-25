@@ -1,8 +1,7 @@
 <?php
 
 function get($file_id,$return = false){
-    checkAuth();
-    //$user_id = 'eeec1e618690fba21fd416df610da961';
+    $user_id = checkAuth();
     $validator = Validator::getInstance();
     $file_id = $validator->Check('Md5Type', $file_id, []);
     if ($file_id === false) {
@@ -18,7 +17,10 @@ function get($file_id,$return = false){
     } else{
         $file_data = $return;
     }
-
+    if (!checkPermissions($user_id,$file_data)){
+        echo json_encode(["status" => "error", "message" =>"Permission denied"]);
+        exit;
+    }
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
     $path = $exp[1];
@@ -109,6 +111,11 @@ function delete($file_id){
     $file_data = getFileData($file_id);
     if (!$file_data){
         echo "File not found";
+        exit;
+    }
+
+    if (!checkPermissions($user_id,$file_data)){
+        echo json_encode(["status" => "error", "message" =>"Permission denied"]);
         exit;
     }
 

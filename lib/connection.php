@@ -17,6 +17,7 @@ function sendFile($URL,$file_path,$file_name){
 }
 
 function checkAuth(){
+    //return 'eeec1e618690fba21fd416df610da961';
     if (!isset($_COOKIE['token'])) {
         $header = HeadersController::getInstance();
         $auth = Config::get('auth_url');
