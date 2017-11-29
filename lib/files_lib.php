@@ -177,6 +177,11 @@ function createFile($file_id,$name,$owner_user_id,$path){
     return $conn->performQuery($query);
 }
 
+function createSandboxFile($file_id,$name,$owner_user_id,$path){
+    $conn = DBConnection::getInstance();
+    $query = "CALL createSandboxFile('$file_id','$name','$owner_user_id','$path');";
+    return $conn->performQuery($query);
+}
 
 /**
  * Delete file record from base
@@ -185,6 +190,12 @@ function createFile($file_id,$name,$owner_user_id,$path){
 function deleteFile($file_id){
     $conn = DBConnection::getInstance();
     $query = "CALL deleteControllerFile('$file_id');";
+    return $conn->performQuery($query);
+}
+
+function deleteSandboxFile($file_id){
+    $conn = DBConnection::getInstance();
+    $query = "CALL deleteSandboxFile('$file_id');";
     return $conn->performQuery($query);
 }
 
@@ -217,6 +228,12 @@ function generateLink($file_id){
 function getFileData($file_id){
     $conn = DBConnection::getInstance();
     $query = "CALL getFileData('$file_id');";
+    return  $conn->performQueryFetch($query);
+}
+
+function getSandboxFileData($file_id){
+    $conn = DBConnection::getInstance();
+    $query = "CALL getSandboxFileData('$file_id');";
     return  $conn->performQueryFetch($query);
 }
 
