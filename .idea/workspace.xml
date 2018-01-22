@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connection.php" afterPath="$PROJECT_DIR$/lib/connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/defaults.php" afterPath="$PROJECT_DIR$/config/defaults.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controller_actions.php" afterPath="$PROJECT_DIR$/lib/controller_actions.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/files_lib.php" afterPath="$PROJECT_DIR$/lib/files_lib.php" />
     </list>
@@ -54,12 +53,6 @@
         <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
         <item name="sandbox_files" type="e3449647:DbNodeDescriptor" />
       </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="controller@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="controller" type="e3449647:DbNodeDescriptor" />
-        <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
-      </path>
     </expand>
     <select />
   </component>
@@ -68,46 +61,24 @@
       <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="240">
+              <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
               <folding>
-                <marker date="1511791801241" expanded="true" signature="11899:11936" ph="SELECT ${$co... controller_files" />
-                <marker date="1511791801241" expanded="true" signature="12513:12540" ph="SELECT ${$co... sandbox_files" />
-                <marker date="1511791801241" expanded="true" signature="12513:12560" ph="SELECT * fro... sandbox_files" />
-                <marker date="1511791801241" expanded="true" signature="12513:12568" ph="SELECT * fro... sandbox_files" />
+                <marker date="1514382015302" expanded="true" signature="11899:11936" ph="SELECT ${$co... controller_files" />
+                <marker date="1514382015302" expanded="true" signature="12505:12532" ph="SELECT ${$co... sandbox_files" />
+                <marker date="1514382015302" expanded="true" signature="12505:12552" ph="SELECT * fro... sandbox_files" />
+                <marker date="1514382015302" expanded="true" signature="12505:12560" ph="SELECT * fro... sandbox_files" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sandbox_files" pinned="false" current-in-tab="false">
-        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.sandbox_files">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_files" pinned="false" current-in-tab="false">
-        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="files_lib.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
+      <file leaf-file-name="defaults.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/defaults.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3114">
-              <caret line="173" column="9" lean-forward="false" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
-              <folding>
-                <marker date="1510320339098" expanded="true" signature="6765:6799" ph="UPDATE contr... " />
-                <marker date="1510320339098" expanded="true" signature="6765:6800" ph="UPDATE contr... " />
-                <marker date="1510320339098" expanded="true" signature="6765:6830" ph="UPDATE contr... " />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="15" column="80" lean-forward="false" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,6 +111,8 @@
       <find>url</find>
       <find>resourse</find>
       <find>user_id</find>
+      <find>checkmime</find>
+      <find>mime</find>
     </findStrings>
     <replaceStrings>
       <replace>function</replace>
@@ -163,7 +136,6 @@
         <option value="/60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/deleteFile.(varchar(32)).sql" />
         <option value="$PROJECT_DIR$/testdummy.txt" />
         <option value="$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/up.sql" />
-        <option value="$PROJECT_DIR$/config/defaults.php" />
         <option value="$PROJECT_DIR$/support/migration_tool/create_db.php" />
         <option value="$PROJECT_DIR$/support/migration_tool/drop_db.php" />
         <option value="$PROJECT_DIR$/support/migration_tool/migrate.php" />
@@ -178,8 +150,12 @@
         <option value="$PROJECT_DIR$/config/requires_templates/requires.debug.php" />
         <option value="$PROJECT_DIR$/config/config.ini" />
         <option value="$PROJECT_DIR$/lib/connection.php" />
-        <option value="$PROJECT_DIR$/lib/files_lib.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql" />
+        <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createSandboxFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql" />
+        <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/deleteSandboxFile.(varchar(32)).sql" />
+        <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/getSandboxFileData.(varchar(32)).sql" />
+        <option value="$PROJECT_DIR$/lib/files_lib.php" />
+        <option value="$PROJECT_DIR$/config/defaults.php" />
         <option value="$PROJECT_DIR$/lib/controller_actions.php" />
       </list>
     </option>
@@ -216,6 +192,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,12 +220,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cmsium_sandbox" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/config/config.ini" />
   </component>
@@ -407,24 +383,29 @@
       <workItem from="1510568009417" duration="3867000" />
       <workItem from="1510649238307" duration="1216000" />
       <workItem from="1511785194324" duration="2952000" />
+      <workItem from="1511947775368" duration="797000" />
+      <workItem from="1512138653575" duration="1866000" />
+      <workItem from="1512303562709" duration="3061000" />
+      <workItem from="1514377300557" duration="968000" />
+      <workItem from="1514379079935" duration="3056000" />
+      <workItem from="1516614294128" duration="236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156355000" />
+    <option name="totallyTimeSpent" value="166339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2824765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30237702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29780564" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3068063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -450,9 +431,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
     <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
     <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.files_links" />
     <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
@@ -481,13 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/defaults.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -641,25 +612,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/database/DBConnection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="217" column="36" lean-forward="true" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -670,27 +627,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createSandboxFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/getSandboxFileData.(varchar(32)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/deleteSandboxFile.(varchar(32)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/defaults.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="80" lean-forward="false" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3114">
-          <caret line="173" column="9" lean-forward="false" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+        <state relative-caret-position="203">
+          <caret line="241" column="9" lean-forward="false" selection-start-line="241" selection-start-column="9" selection-end-line="241" selection-end-column="9" />
           <folding>
-            <marker date="1510320339098" expanded="true" signature="6765:6799" ph="UPDATE contr... " />
-            <marker date="1510320339098" expanded="true" signature="6765:6800" ph="UPDATE contr... " />
-            <marker date="1510320339098" expanded="true" signature="6765:6830" ph="UPDATE contr... " />
+            <marker date="1512321803618" expanded="true" signature="6856:6890" ph="UPDATE contr... " />
+            <marker date="1512321803618" expanded="true" signature="6856:6891" ph="UPDATE contr... " />
+            <marker date="1512321803618" expanded="true" signature="6856:6921" ph="UPDATE contr... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="240">
+          <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
           <folding>
-            <marker date="1511791801241" expanded="true" signature="11899:11936" ph="SELECT ${$co... controller_files" />
-            <marker date="1511791801241" expanded="true" signature="12513:12540" ph="SELECT ${$co... sandbox_files" />
-            <marker date="1511791801241" expanded="true" signature="12513:12560" ph="SELECT * fro... sandbox_files" />
-            <marker date="1511791801241" expanded="true" signature="12513:12568" ph="SELECT * fro... sandbox_files" />
+            <marker date="1514382015302" expanded="true" signature="11899:11936" ph="SELECT ${$co... controller_files" />
+            <marker date="1514382015302" expanded="true" signature="12505:12532" ph="SELECT ${$co... sandbox_files" />
+            <marker date="1514382015302" expanded="true" signature="12505:12552" ph="SELECT * fro... sandbox_files" />
+            <marker date="1514382015302" expanded="true" signature="12505:12560" ph="SELECT * fro... sandbox_files" />
           </folding>
         </state>
       </provider>
