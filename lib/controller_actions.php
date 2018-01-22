@@ -201,6 +201,10 @@ function copySandboxFile($file_id){
         echo json_encode(["status" => "error", "message" => "File does not exist"]);
         exit;
     }
+    if (getFileData($file_id)){
+        echo json_encode(["status" => "error", "message" =>"File is already exists"]);
+        exit;
+    }
     $server = DefineServer();
     $conn = DBConnection::getInstance();
     $conn->startTransaction();

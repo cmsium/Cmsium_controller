@@ -4,9 +4,7 @@
     <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/defaults.php" afterPath="$PROJECT_DIR$/config/defaults.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controller_actions.php" afterPath="$PROJECT_DIR$/lib/controller_actions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/files_lib.php" afterPath="$PROJECT_DIR$/lib/files_lib.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,34 +59,32 @@
       <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
+            <state relative-caret-position="324">
+              <caret line="204" column="68" lean-forward="false" selection-start-line="204" selection-start-column="68" selection-end-line="204" selection-end-column="68" />
               <folding>
-                <marker date="1514382015302" expanded="true" signature="11899:11936" ph="SELECT ${$co... controller_files" />
-                <marker date="1514382015302" expanded="true" signature="12505:12532" ph="SELECT ${$co... sandbox_files" />
-                <marker date="1514382015302" expanded="true" signature="12505:12552" ph="SELECT * fro... sandbox_files" />
-                <marker date="1514382015302" expanded="true" signature="12505:12560" ph="SELECT * fro... sandbox_files" />
+                <marker date="1516631601245" expanded="true" signature="12038:12075" ph="SELECT ${$co... controller_files" />
+                <marker date="1516631601245" expanded="true" signature="12644:12671" ph="SELECT ${$co... sandbox_files" />
+                <marker date="1516631601245" expanded="true" signature="12644:12691" ph="SELECT * fro... sandbox_files" />
+                <marker date="1516631601245" expanded="true" signature="12644:12699" ph="SELECT * fro... sandbox_files" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="defaults.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/defaults.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="15" column="80" lean-forward="false" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
-              <folding />
+      <file leaf-file-name="controller_files" pinned="false" current-in-tab="false">
+        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/connection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-              <folding />
+      <file leaf-file-name="sandbox_files" pinned="false" current-in-tab="false">
+        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.sandbox_files">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -216,6 +212,12 @@
               <item name="Cmsium_controller" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="Cmsium_controller" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cmsium_controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="validation" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -224,7 +226,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cmsium_sandbox" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/config/config.ini" />
   </component>
@@ -388,15 +390,16 @@
       <workItem from="1512303562709" duration="3061000" />
       <workItem from="1514377300557" duration="968000" />
       <workItem from="1514379079935" duration="3056000" />
-      <workItem from="1516614294128" duration="236000" />
+      <workItem from="1516614294128" duration="6855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166339000" />
+    <option name="totallyTimeSpent" value="172958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30237702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -534,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/validation/Types.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9882">
-          <caret line="549" column="32" lean-forward="false" selection-start-line="549" selection-start-column="32" selection-end-line="549" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/requires_templates/requires.product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -573,13 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="46" column="35" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -620,24 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.sandbox_files">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -662,6 +637,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/validation/Types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="549" column="32" lean-forward="false" selection-start-line="549" selection-start-column="32" selection-end-line="549" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/defaults.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -670,10 +653,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="241" column="9" lean-forward="false" selection-start-line="241" selection-start-column="9" selection-end-line="241" selection-end-column="9" />
+        <state relative-caret-position="211">
+          <caret line="197" column="9" lean-forward="false" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
           <folding>
             <marker date="1512321803618" expanded="true" signature="6856:6890" ph="UPDATE contr... " />
             <marker date="1512321803618" expanded="true" signature="6856:6891" ph="UPDATE contr... " />
@@ -682,15 +673,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.sandbox_files">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
+        <state relative-caret-position="324">
+          <caret line="204" column="68" lean-forward="false" selection-start-line="204" selection-start-column="68" selection-end-line="204" selection-end-column="68" />
           <folding>
-            <marker date="1514382015302" expanded="true" signature="11899:11936" ph="SELECT ${$co... controller_files" />
-            <marker date="1514382015302" expanded="true" signature="12505:12532" ph="SELECT ${$co... sandbox_files" />
-            <marker date="1514382015302" expanded="true" signature="12505:12552" ph="SELECT * fro... sandbox_files" />
-            <marker date="1514382015302" expanded="true" signature="12505:12560" ph="SELECT * fro... sandbox_files" />
+            <marker date="1516631601245" expanded="true" signature="12038:12075" ph="SELECT ${$co... controller_files" />
+            <marker date="1516631601245" expanded="true" signature="12644:12671" ph="SELECT ${$co... sandbox_files" />
+            <marker date="1516631601245" expanded="true" signature="12644:12691" ph="SELECT * fro... sandbox_files" />
+            <marker date="1516631601245" expanded="true" signature="12644:12699" ph="SELECT * fro... sandbox_files" />
           </folding>
         </state>
       </provider>
