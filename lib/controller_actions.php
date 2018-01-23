@@ -349,7 +349,7 @@ function getAllFiles($columns){
     }
     $conn = DBConnection::getInstance();
     $columns = implode(',',explode('.',$columns));
-    $query = "SELECT $columns from controller_files;";
+    $query = "CALL getAllFiles('$columns');";
     $data = $conn->performQueryFetchAll($query);
     if (!$data){
         echo json_encode(["status" => "error", "message" => 'No files']);
@@ -367,7 +367,7 @@ function getSandboxFiles($user_id){
         exit;
     }
     $conn = DBConnection::getInstance();
-    $query = "SELECT * from sandbox_files WHERE owner_id = '$user_id';";
+    $query = "CALL getSandboxFiles('$user_id');";
     $data = $conn->performQueryFetchAll($query);
     if (empty($data)){
         echo json_encode(["status" => "error", "message" => 'Sandbox is empty']);
