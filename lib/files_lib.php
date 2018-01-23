@@ -241,7 +241,7 @@ function getSandboxFileData($file_id){
 
 function updateFileData($file_id,$path){
     $conn = DBConnection::getInstance();
-    $query = "UPDATE controller_files SET path='$path' WHERE file_id='$file_id'";
+    $query = "CALL updateFileData('$file_id','$path');";
     return  $conn->performQuery($query);
 }
 
