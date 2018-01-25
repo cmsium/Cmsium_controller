@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/errors/errors.messages.debug.php" afterPath="$PROJECT_DIR$/config/errors/errors.messages.debug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/errors/errors.messages.product.php" afterPath="$PROJECT_DIR$/config/errors/errors.messages.product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connection.php" afterPath="$PROJECT_DIR$/lib/connection.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controller_actions.php" afterPath="$PROJECT_DIR$/lib/controller_actions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,40 +56,56 @@
         <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
         <item name="sandbox_files" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="controller@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="controller" type="e3449647:DbNodeDescriptor" />
+        <item name="" type="fce03ad6:DatabaseStructure$GroupNode" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="files_lib.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="238" column="45" lean-forward="false" selection-start-line="238" selection-start-column="45" selection-end-line="238" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="204" column="68" lean-forward="false" selection-start-line="204" selection-start-column="68" selection-end-line="204" selection-end-column="68" />
+            <state relative-caret-position="-362">
+              <caret line="330" column="22" lean-forward="true" selection-start-line="330" selection-start-column="22" selection-end-line="330" selection-end-column="22" />
               <folding>
-                <marker date="1516631601245" expanded="true" signature="12038:12075" ph="SELECT ${$co... controller_files" />
-                <marker date="1516631601245" expanded="true" signature="12644:12671" ph="SELECT ${$co... sandbox_files" />
-                <marker date="1516631601245" expanded="true" signature="12644:12691" ph="SELECT * fro... sandbox_files" />
-                <marker date="1516631601245" expanded="true" signature="12644:12699" ph="SELECT * fro... sandbox_files" />
+                <marker date="1516890139716" expanded="true" signature="9974:10002" ph="SELECT ${$co... controller_files" />
+                <marker date="1516890139716" expanded="true" signature="10460:10492" ph="SELECT * fro... sandbox_files" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller_files" pinned="false" current-in-tab="false">
-        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.controller_files">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="errors.messages.debug.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.debug.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="88" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sandbox_files" pinned="false" current-in-tab="false">
-        <entry file="das://table:/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/controller.sandbox_files">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="errors.messages.product.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="88" lean-forward="false" selection-start-line="14" selection-start-column="88" selection-end-line="14" selection-end-column="88" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,7 +146,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/getFileDataFromSandbox.(varchar(32)).sql" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/create_form.php" />
         <option value="/60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/createFile.(varchar(32),varchar(100),varchar(32)).sql" />
@@ -145,14 +165,17 @@
         <option value="$PROJECT_DIR$/config/requires_templates/requires.product.php" />
         <option value="$PROJECT_DIR$/config/requires_templates/requires.debug.php" />
         <option value="$PROJECT_DIR$/config/config.ini" />
-        <option value="$PROJECT_DIR$/lib/connection.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql" />
-        <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createSandboxFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql" />
         <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/deleteSandboxFile.(varchar(32)).sql" />
         <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/getSandboxFileData.(varchar(32)).sql" />
-        <option value="$PROJECT_DIR$/lib/files_lib.php" />
         <option value="$PROJECT_DIR$/config/defaults.php" />
+        <option value="$PROJECT_DIR$/lib/files_lib.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql" />
+        <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createSandboxFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql" />
+        <option value="$PROJECT_DIR$/lib/connection.php" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/lib/controller_actions.php" />
+        <option value="$PROJECT_DIR$/config/errors/errors.messages.debug.php" />
+        <option value="$PROJECT_DIR$/config/errors/errors.messages.product.php" />
       </list>
     </option>
   </component>
@@ -168,9 +191,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="y" value="-4" />
+    <option name="width" value="1853" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -187,8 +210,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,28 +226,24 @@
               <item name="Cmsium_controller" type="b2602c69:ProjectViewProjectNode" />
               <item name="Cmsium_controller" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="requires_templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="errors" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Cmsium_controller" type="b2602c69:ProjectViewProjectNode" />
               <item name="Cmsium_controller" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Cmsium_controller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cmsium_controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="validation" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cmsium_sandbox" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Cmsium_university_structure" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/config/config.ini" />
   </component>
@@ -390,18 +407,20 @@
       <workItem from="1512303562709" duration="3061000" />
       <workItem from="1514377300557" duration="968000" />
       <workItem from="1514379079935" duration="3056000" />
-      <workItem from="1516614294128" duration="6855000" />
+      <workItem from="1516614294128" duration="8665000" />
+      <workItem from="1516707325900" duration="6977000" />
+      <workItem from="1516884106927" duration="6069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172958000" />
+    <option name="totallyTimeSpent" value="187814000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30237702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3095633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -415,7 +434,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -434,9 +453,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.files_links" />
-    <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
     <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
     <entry file="dbDummy://dbtable:/b342d948/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/connection_test.controller_files" />
     <entry file="file://$PROJECT_DIR$/test.php" />
@@ -458,13 +474,6 @@
     <entry file="dbSrc:///60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/deleteControllerFile.(varchar(32)).sql" />
     <entry file="dbSrc:///60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/deleteLinkByFileId.(varchar(32)).sql" />
     <entry file="dbSrc:///60beec37/0c8a38fb-e694-44c6-8c6b-ae0f46be8ae8/schema/connection_test/routine/getFileData.(varchar(32)).sql" />
-    <entry file="file://$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/up.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/validation/Masks.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -544,24 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/requires_templates/requires.debug.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -579,47 +574,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createControllerFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/deleteControllerFile.(varchar(32)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/database/DBConnection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="217" column="36" lean-forward="true" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createSandboxFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -653,23 +612,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.ini">
+    <entry file="file://$PROJECT_DIR$/support/migration_tool/migrations/2017-08-11-15-30_add_controller_tables_and_procedures/up.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="197" column="9" lean-forward="false" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
-          <folding>
-            <marker date="1512321803618" expanded="true" signature="6856:6890" ph="UPDATE contr... " />
-            <marker date="1512321803618" expanded="true" signature="6856:6891" ph="UPDATE contr... " />
-            <marker date="1512321803618" expanded="true" signature="6856:6921" ph="UPDATE contr... " />
-          </folding>
+        <state relative-caret-position="540">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -687,16 +633,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createControllerFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/updateFileData.(varchar(32),varchar(255)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/deleteControllerFile.(varchar(32)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/createSandboxFile.(varchar(32),varchar(100),varchar(32),varchar(255)).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e8bcda7-7db1-47d2-821d-a5b58e65893f/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/requires_templates/requires.debug.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/files_lib.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="238" column="45" lean-forward="false" selection-start-line="238" selection-start-column="45" selection-end-line="238" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="204" column="68" lean-forward="false" selection-start-line="204" selection-start-column="68" selection-end-line="204" selection-end-column="68" />
+        <state relative-caret-position="-362">
+          <caret line="330" column="22" lean-forward="true" selection-start-line="330" selection-start-column="22" selection-end-line="330" selection-end-column="22" />
           <folding>
-            <marker date="1516631601245" expanded="true" signature="12038:12075" ph="SELECT ${$co... controller_files" />
-            <marker date="1516631601245" expanded="true" signature="12644:12671" ph="SELECT ${$co... sandbox_files" />
-            <marker date="1516631601245" expanded="true" signature="12644:12691" ph="SELECT * fro... sandbox_files" />
-            <marker date="1516631601245" expanded="true" signature="12644:12699" ph="SELECT * fro... sandbox_files" />
+            <marker date="1516890139716" expanded="true" signature="9974:10002" ph="SELECT ${$co... controller_files" />
+            <marker date="1516890139716" expanded="true" signature="10460:10492" ph="SELECT * fro... sandbox_files" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.debug.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="88" lean-forward="false" selection-start-line="14" selection-start-column="88" selection-end-line="14" selection-end-column="88" />
+          <folding />
         </state>
       </provider>
     </entry>
