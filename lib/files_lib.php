@@ -256,8 +256,9 @@ function generateFileName($id,$create_at,$name){
 function DefineServer(){
     $server = Config::get('service_url');
     $result = sendRequest("$server/chooseFileServer",'GET',null,null);
+    //TODO no json
     if ($result['status'] == 'error'){
-        echo "File servers error";
+        throwException(FILE_SERVER_ERROR);
         exit;
     }
     return $result['server'];
