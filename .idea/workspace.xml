@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.ini" afterPath="$PROJECT_DIR$/config/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/errors/errors.messages.debug.php" afterPath="$PROJECT_DIR$/config/errors/errors.messages.debug.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/errors/errors.messages.product.php" afterPath="$PROJECT_DIR$/config/errors/errors.messages.product.php" />
-    </list>
+    <list default="true" id="e4ad477d-c072-4b76-9778-0a322717d6ad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,35 +68,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controller_actions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="293" column="26" lean-forward="false" selection-start-line="293" selection-start-column="26" selection-end-line="293" selection-end-column="26" />
+            <state relative-caret-position="-27">
+              <caret line="187" column="15" lean-forward="false" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="15" />
               <folding>
-                <marker date="1516966146626" expanded="true" signature="8345:8373" ph="SELECT ${$co... controller_files" />
-                <marker date="1516966146626" expanded="true" signature="8831:8863" ph="SELECT * fro... sandbox_files" />
+                <marker date="1516966566153" expanded="true" signature="8345:8373" ph="SELECT ${$co... controller_files" />
+                <marker date="1516966566153" expanded="true" signature="8831:8863" ph="SELECT * fro... sandbox_files" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="errors.messages.debug.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.debug.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="errors.messages.product.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.product.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,8 +84,8 @@
       <file leaf-file-name="connection.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/connection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1278">
-              <caret line="71" column="11" lean-forward="false" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
+            <state relative-caret-position="295">
+              <caret line="72" column="1" lean-forward="true" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -136,6 +111,7 @@
       <find>user_id</find>
       <find>checkmime</find>
       <find>mime</find>
+      <find>create</find>
     </findStrings>
     <replaceStrings>
       <replace>function</replace>
@@ -170,7 +146,6 @@
         <option value="$PROJECT_DIR$/sandbox.xml" />
         <option value="$PROJECT_DIR$/config/requires_templates/requires.product.php" />
         <option value="$PROJECT_DIR$/config/requires_templates/requires.debug.php" />
-        <option value="$PROJECT_DIR$/config/config.ini" />
         <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/deleteSandboxFile.(varchar(32)).sql" />
         <option value="/60beec37/5e8bcda7-7db1-47d2-821d-a5b58e65893f/schema/controller/routine/getSandboxFileData.(varchar(32)).sql" />
         <option value="$PROJECT_DIR$/config/defaults.php" />
@@ -182,6 +157,7 @@
         <option value="$PROJECT_DIR$/lib/controller_actions.php" />
         <option value="$PROJECT_DIR$/config/errors/errors.messages.product.php" />
         <option value="$PROJECT_DIR$/config/errors/errors.messages.debug.php" />
+        <option value="$PROJECT_DIR$/config/config.ini" />
       </list>
     </option>
   </component>
@@ -422,7 +398,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195022000" />
+    <option name="totallyTimeSpent" value="195892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -434,7 +410,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31623036" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31623036" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -579,6 +555,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="217" column="36" lean-forward="true" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -650,6 +627,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.debug.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -663,36 +657,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/connection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1278">
-          <caret line="71" column="11" lean-forward="false" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
+        <state relative-caret-position="295">
+          <caret line="72" column="1" lean-forward="true" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/controller_actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="293" column="26" lean-forward="false" selection-start-line="293" selection-start-column="26" selection-end-line="293" selection-end-column="26" />
+        <state relative-caret-position="-27">
+          <caret line="187" column="15" lean-forward="false" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="15" />
           <folding>
-            <marker date="1516966146626" expanded="true" signature="8345:8373" ph="SELECT ${$co... controller_files" />
-            <marker date="1516966146626" expanded="true" signature="8831:8863" ph="SELECT * fro... sandbox_files" />
+            <marker date="1516966566153" expanded="true" signature="8345:8373" ph="SELECT ${$co... controller_files" />
+            <marker date="1516966566153" expanded="true" signature="8831:8863" ph="SELECT * fro... sandbox_files" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/errors/errors.messages.debug.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
