@@ -63,22 +63,11 @@ function get($file_id,$return = false){
     $server = $exp[0];
     $path = $exp[1];
     $filecheck = sendRequest("$server/checkFile?id=$file_id&path=$path",'GET',null,null);
-    //TODO parse response like enumerative array
-    switch ($filecheck['status']){
-        case 'error':
-            echo json_encode(["status" => "error", "message" =>$filecheck['message']]);
-            exit;
-        case 'link':
-            $link = $filecheck['link'];
-            break;
-        case 'nolink':
-           $link = generateLink($file_id);
-           $linkcheck = sendRequest("$server/saveTempLink?path=$path&link=$link",'GET',null,null);
-           if ($linkcheck['status'] == "error"){
-               echo json_encode(["status" => "error", "message" =>$linkcheck['message']]);
-               exit;
-           }
-           break;
+    if (empty($filecheck)) {
+        $link = generateLink($file_id);
+        sendRequest("$server/saveTempLink?path=$path&link=$link", 'GET', null, null);
+    } else {
+        $link = $filecheck;
     }
     if ($return) {
         $link = "<a href=\"http://$server/getFile?link=".$link."&name=".$file_data['file_name']."\">скачать</a>";
@@ -133,13 +122,7 @@ function deleteFromSandbox($file_id){
         throwException(DELETE_FILE_ERROR);
     }
     $server = Config::get('sandbox_url');
-    $delete_status = sendRequest("$server/deleteFile?path={$file_data['path']}",'GET',null,null);
-    //TODO parse response like enumerative array
-    switch ($delete_status['status']){
-        case 'error':
-            echo $delete_status['message'];
-            exit;
-    }
+    sendRequest("$server/deleteFile?path={$file_data['path']}",'GET',null,null);
     return;
 }
 
@@ -189,25 +172,16 @@ function copySandboxFile($file_id){
     $conn->commit();
     $sandbox = Config::get('sandbox_url');
     $response = sendRequest("$sandbox/copyFile?server=$server&file={$data['path']}&id=$file_id",'GET',null,null);
-    //TODO parse response like enumerative array
-    switch ($response['status']){
-        case 'error':
-            echo json_encode(["status" => "error", "message" => $response['message']]);
-            exit;
-        case 'ok':
-            if (!createFile($file_id,$data['file_name'],$data['owner_id'],$response['file_path'])){
-                $conn->rollback();
-                throwException(FILE_CREATE_ERROR);
-            }
-            if (!deleteSandboxFile($file_id)){
-                $conn->rollback();
-                throwException(DELETE_FILE_ERROR);
-            }
-            echo $file_id;
-            return;
-        default:
-            throwException(CONNECTION_ERROR);
+    if (!createFile($file_id,$data['file_name'],$data['owner_id'],$response['file_path'])){
+        $conn->rollback();
+        throwException(FILE_CREATE_ERROR);
     }
+    if (!deleteSandboxFile($file_id)){
+        $conn->rollback();
+        throwException(DELETE_FILE_ERROR);
+    }
+    echo $file_id;
+    return;
 }
 
 
@@ -231,23 +205,14 @@ function create($file_id,$path,$owner_user_id) {
         $server = DefineServer();
         $sandbox = Config::get('sandbox_url');
         $response = sendRequest("$sandbox/copyFile?server=$server&file=$path&id=$file_id",'GET',null,null);
-        //TODO parse response like enumerative array
-        switch ($response['status']){
-            case 'error':
-                echo json_encode(["status" => "error", "message" => $response['message']]);
-                exit;
-            case 'ok':
-                $name = @end(explode('/',$path));
-                if (createFile($file_id,$name,$owner_user_id, $response['file_path'])){
-                    echo $file_id;
-                    return;
-                } else {
-                    $path = explode('//',$response['file_path'])[1];
-                    sendRequest("$server/deleteFile?path=$path",'GET',null,null);
-                    throwException(FILE_CREATE_ERROR);
-                }
-            default:
-                throwException(CONNECTION_ERROR);
+        $name = @end(explode('/',$path));
+        if (createFile($file_id,$name,$owner_user_id, $response['file_path'])){
+            echo $file_id;
+            return;
+        } else {
+            $path = explode('//',$response['file_path'])[1];
+            sendRequest("$server/deleteFile?path=$path",'GET',null,null);
+            throwException(FILE_CREATE_ERROR);
         }
     }
 }
@@ -274,13 +239,7 @@ function delete($file_id){
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
     $path = $exp[1];
-    $delete_status = sendRequest("$server/deleteFile?path=$path",'GET',null,null);
-    //TODO parse response like enumerative array
-    switch ($delete_status['status']){
-        case 'error':
-            echo $delete_status['message'];
-            exit;
-    }
+    sendRequest("$server/deleteFile?path=$path",'GET',null,null);
     return;
 
 }
@@ -332,7 +291,7 @@ function getSandboxFiles($user_id){
         throwException(EMPTY_SANDBOX);
     }
     //TODO no json
-    echo json_encode(array_merge($data));
+    echo json_encode($data);
     return;
 }
 

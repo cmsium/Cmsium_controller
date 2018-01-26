@@ -2,8 +2,23 @@
 function sendRequest($URL,$method,$header,$content){
     $options = ['http' => ['method' => $method, 'header' => $header, 'content' => $content]];
     $context = stream_context_create($options);
-    return json_decode(file_get_contents("http://$URL", false, $context),true);
+    $content =  file_get_contents("http://$URL", false, $context);
+    if ($code = getHeaderValue($http_response_header, 'App-Exception')) {
+        throwExceptionByCode($code);
+    }
+    return $content;
 }
+
+function sendRequestJSON($URL,$method,$header,$content){
+    $options = ['http' => ['method' => $method, 'header' => $header, 'content' => $content]];
+    $context = stream_context_create($options);
+    $content =  file_get_contents("http://$URL", false, $context);
+    if ($code = getHeaderValue($http_response_header, 'App-Exception')) {
+        throwExceptionByCode($code);
+    }
+    return json_decode($content,true);
+}
+
 
 function sendFile($URL,$file_path,$file_name){
     $mime = mime_content_type($file_path);
@@ -49,4 +64,20 @@ function throwException (array $exception){
     header("App-Exception: {$exception['code']}");
     ob_clean();
     exit();
+}
+
+function throwExceptionByCode ($code){
+    header("App-Exception: ".(int)$code);
+    ob_clean();
+    exit();
+}
+
+function getHeaderValue($headers_array, $header) {
+    foreach ($headers_array as $value) {
+        $parsed_array = explode(':', $value, 2);
+        if ($parsed_array[0] === $header) {
+            return trim($parsed_array[1]);
+        }
+    }
+    return false;
 }
