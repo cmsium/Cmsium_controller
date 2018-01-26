@@ -1,4 +1,5 @@
 <?php
+
 define ("DATA_FORMAT_ERROR",['code' => 105, 'text' => 'Неверный формат данных']);
 define ("CONNECTION_ERROR",['code' => 199, 'text' => 'Не удалось установить соединение с сервером']);
 define ("FILE_NOT_FOUND",['code' => 800, 'text' => 'Файл не найден']);
