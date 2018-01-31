@@ -36,8 +36,7 @@ function getFile($file_id){
     $exp = explode ("//",$file_data['path']);
     $server = $exp[0];
     $path = $exp[1];
-    //TODO send enumerative array, not json
-    echo json_encode(["status" => "ok", "server" =>$server, "path"=>$path]);
+    echo json_encode([$server, $path]);
 }
 
 
