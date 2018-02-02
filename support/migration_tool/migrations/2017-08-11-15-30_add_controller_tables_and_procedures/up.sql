@@ -28,3 +28,39 @@ CREATE PROCEDURE getFileData(IN idFile VARCHAR(32))
   BEGIN
     SELECT * FROM controller_files WHERE file_id = idFile;
   END;
+
+  CREATE PROCEDURE `getAllFiles`(IN Columns VARCHAR(255))
+  BEGIN
+    START TRANSACTION;
+    SET @sql = CONCAT('SELECT ', Columns, ' from controller_files;');
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+    COMMIT;
+  END;
+
+CREATE PROCEDURE `getSandboxFiles`(IN idUser VARCHAR(32))
+  BEGIN
+    SELECT * from sandbox_files WHERE owner_id = idUser;
+  END;
+
+CREATE PROCEDURE `createSandboxFile`(IN idFile   VARCHAR(32), IN fileName VARCHAR(100), IN idOwner VARCHAR(32),
+                                     IN FilePath VARCHAR(255))
+  BEGIN
+    INSERT INTO sandbox_files (file_id, path, created_at, file_name, owner_id) VALUES (idFile,FilePath,NOW(),fileName,idOwner);
+  END;
+
+CREATE PROCEDURE `deleteSandboxFile`(IN idFile VARCHAR(32))
+BEGIN
+DELETE FROM sandbox_files WHERE file_id=idFile;
+END;
+
+CREATE PROCEDURE `getSandboxFileData`(IN idFile VARCHAR(32))
+  BEGIN
+    SELECT * FROM sandbox_files WHERE file_id = idFile;
+  END;
+
+CREATE PROCEDURE `updateFileData`(IN idFile  VARCHAR(32), IN filePath VARCHAR(255))
+  BEGIN
+    UPDATE controller_files SET path=filePath WHERE file_id=idFile;
+  END

@@ -171,14 +171,14 @@ function copySandboxFile($file_id){
     $conn->commit();
     $sandbox = Config::get('sandbox_url');
     $response = sendRequest("$sandbox/copyFile?server=$server&file={$data['path']}&id=$file_id",'GET',null,null);
-    if (!createFile($file_id,$data['file_name'],$data['owner_id'],$response['file_path'])){
+    if (!createFile($file_id,$data['file_name'],$data['owner_id'],$response)){
         $conn->rollback();
         throwException(FILE_CREATE_ERROR);
     }
-    if (!deleteSandboxFile($file_id)){
-        $conn->rollback();
-        throwException(DELETE_FILE_ERROR);
-    }
+//    if (!deleteSandboxFile($file_id)){
+//        $conn->rollback();
+//        throwException(DELETE_FILE_ERROR);
+//    }
     echo $file_id;
     return;
 }
@@ -273,7 +273,7 @@ function getAllFiles($columns){
         throwException(NO_FILES);
     }
     //TODO no json
-    echo json_encode(array_merge($data));
+    echo json_encode($data);
     return;
 }
 

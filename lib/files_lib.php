@@ -256,7 +256,7 @@ function generateFileName($id,$create_at,$name){
 function DefineServer(){
     $server = Config::get('service_url');
     $result = sendRequest("$server/chooseFileServer",'GET',null,null);
-    return $result['server'];
+    return $result;
 }
 
 function checkPermissions($user_id,$file_data,$role = false){
