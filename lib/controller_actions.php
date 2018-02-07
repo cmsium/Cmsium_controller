@@ -205,7 +205,7 @@ function create($file_id,$path,$owner_user_id) {
         $sandbox = Config::get('sandbox_url');
         $response = sendRequest("$sandbox/copyFile?server=$server&file=$path&id=$file_id",'GET',null,null);
         $name = @end(explode('/',$path));
-        if (createFile($file_id,$name,$owner_user_id, $response['file_path'])){
+        if (createFile($file_id,$name,$owner_user_id, $response)){
             echo $file_id;
             return;
         } else {

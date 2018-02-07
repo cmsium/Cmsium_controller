@@ -20,17 +20,6 @@ function sendRequestJSON($URL,$method,$header,$content){
 }
 
 
-function sendFile($URL,$file_path,$file_name){
-    $mime = mime_content_type($file_path);
-    $server = "http://$URL";
-    $curl = curl_init($server);
-    curl_setopt($curl, CURLOPT_POST, true);
-    $data = ['userfile' => curl_file_create($file_path,$mime,$file_name)];
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    return json_decode(curl_exec($curl),true);
-}
-
 function checkAuth(){
     return 'eeec1e618690fba21fd416df610da961';
     /*if (!isset($_COOKIE['token'])) {
