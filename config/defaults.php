@@ -18,4 +18,4 @@ define ("ALLOWED_FILE_MIME_TYPES",['image/jpg','image/jpeg','image/png','applica
 define("EX_TYPES",['diff']);
 define('MAX_FILE_UPLOAD_SIZE', 100000000);
 
-//test comment
+//test comment 2
