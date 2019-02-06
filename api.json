@@ -1,0 +1,218 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "File Controller Service API",
+    "description": "Service is used to control workflow between file system's microservices. This API is specified for a microservice version of a controller, but it can be used as a part of programming interface.",
+    "version": "0.1.1",
+    "contact": {
+      "email": "gren236@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://controller.files.example.com"
+    }
+  ],
+  "paths": {
+    "/file/{id}": {
+      "get": {
+        "summary": "Returns a file server URL to read file from.",
+        "description": "Responds a URL that user should be followed to get the requested file. Checks auth if needed.",
+        "tags": [
+          "file"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "example": {
+                    "url": "http://file.service/file_hash"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "An id of the file to download",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "name": "user_token",
+            "in": "header",
+            "description": "A token to identify the user. Can be a OAuth2.0 token or a proprietary one.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "style": "simple"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletes a file info from controller.",
+        "description": "Deletes file meta info from a controller service if something goes wrong during upload.",
+        "tags": [
+          "file"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "An id of the file to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "security": [
+          "fileServerAuth"
+        ]
+      }
+    },
+    "/file": {
+      "post": {
+        "summary": "Requests file upload.",
+        "description": "Sends request to write a file to a file server.",
+        "tags": [
+          "file"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "example": {
+                    "url": "http://file.service/file_hash"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "parameters": [
+          {
+            "name": "user_token",
+            "in": "header",
+            "description": "A token to identify the user. Can be a OAuth2.0 token or a proprietary one.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "An uploaded file meta.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                },
+                "required": [
+                  "name", "size"
+                ],
+                "example": {
+                  "name": "some_file.txt",
+                  "size": 25655
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "docs@example.com"
+  },
+  "security": [
+    {
+      "clientAuthFlow": [],
+      "fileServerAuth": []
+    }
+  ],
+  "components": {
+    "links": {},
+    "callbacks": {},
+    "schemas": {},
+    "securitySchemes": {
+      "clientAuth": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      },
+      "fileServerAuth": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "file",
+      "description": "Single file operations"
+    }
+  ]
+}
