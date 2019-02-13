@@ -50,6 +50,11 @@
             "description": "Not Found"
           }
         },
+        "security": [
+          {
+            "clientAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
@@ -104,7 +109,9 @@
           }
         ],
         "security": [
-          "fileServerAuth"
+          {
+            "fileServerAuth": []
+          }
         ]
       }
     },
@@ -154,6 +161,11 @@
             "style": "simple"
           }
         ],
+        "security": [
+          {
+            "clientAuth": []
+          }
+        ],
         "requestBody": {
           "description": "An uploaded file meta.",
           "content": {
@@ -188,8 +200,7 @@
   },
   "security": [
     {
-      "clientAuthFlow": [],
-      "fileServerAuth": []
+      "clientAuth": []
     }
   ],
   "components": {

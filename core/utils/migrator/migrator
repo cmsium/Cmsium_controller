@@ -1,0 +1,21 @@
+<?php
+
+define('MAINDIR', __DIR__);
+require_once MAINDIR.'/../../lib/init_libs.php';
+
+use function Migrator\Helpers\dashesToCamelCase;
+
+// Load all from lib
+foreach (glob(MAINDIR.'/lib/*.php') as $filename) {
+    require_once $filename;
+}
+
+$rawCommand = $argv[1];
+$command = '\\Migrator\\Actions\\'.dashesToCamelCase($rawCommand);
+$argument = $argv[2] ?? false;
+
+if (function_exists($command)) {
+    $command($argument);
+} else {
+    echo 'Command not found!'.PHP_EOL;
+}
