@@ -23,6 +23,12 @@ spl_autoload_register(function ($className) {
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
+    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/router', $className);
+});
+
+spl_autoload_register(function ($className) {
+    $classNameArray = explode('\\', $className);
+    $className = array_pop($classNameArray);
     loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/utils/migrator', $className);
 });
 
@@ -60,5 +66,11 @@ spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
     loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/validation', $className);
+});
+
+spl_autoload_register(function ($className) {
+    $classNameArray = explode('\\', $className);
+    $className = array_pop($classNameArray);
+    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/http_server', $className);
 });
 

@@ -8,6 +8,7 @@
     "lib/files",
     "lib/files.p",
     "lib/config",
-    "lib/validation"
+    "lib/validation",
+    "lib/http_server"
   ]
 }

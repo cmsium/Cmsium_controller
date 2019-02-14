@@ -9,7 +9,7 @@
 namespace validation\types;
 
 
-class Date {
+class Date extends ValidationType {
     public $errorMessage = "Value must be valid date";
 
     public function get() {

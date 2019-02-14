@@ -9,7 +9,7 @@
 namespace Validation\types;
 
 
-class Text {
+class Text extends ValidationType {
     public $errorMessage = "Value should not contain forbidden symbols";
     public function get() {
         return function ($value,$except,$min,$max) {

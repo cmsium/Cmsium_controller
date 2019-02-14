@@ -2,8 +2,8 @@
 
 namespace Migrator\Actions;
 
-use DB;
-use Files;
+use Migrator\DB;
+use Migrator\Files;
 use Migrator\Helpers;
 
 /**

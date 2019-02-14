@@ -8,7 +8,7 @@
 
 namespace Validation\types;
 
-class Md5 {
+class Md5 extends ValidationType {
     public $errorMessage = "Value must be valid md5 hash";
     public function get() {
         return function ($value) {
