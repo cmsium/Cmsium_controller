@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/config/defaults.php';
-require_once ROOTDIR.'/core/autoload.php';
+require_once __DIR__.'/boot/loader.php';
 
-echo 'HI!';
+$server = new \HttpServer\Server($router);
+$server->launch();
