@@ -33,11 +33,11 @@ class Validator {
         }
     }
 
-    public function addDBMask($tableName) {
-
-    }
 
     public function __get($name) {
+        if (isset($this->fields[$name])){
+            return $this->fields[$name];
+        }
         if (isset($this->data[$name])) {
             $this->fields[$name] = new Field($name, $this->data[$name]);
             return $this->fields[$name];

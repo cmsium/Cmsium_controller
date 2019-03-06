@@ -9,4 +9,10 @@ require_once ROOTDIR.'/core/autoload.php';
 $router = new \Router\Router;
 include ROOTDIR.'/app/routes.php';
 
-// TODO: Load application classes
+// Build and load application instance
+$application = \Webgear\Swoole\Application::getInstance($router);
+
+// Load helper functions. Add file to helpers array to load it.
+foreach (HELPERS as $helperFile) {
+    include ROOTDIR.'/helpers/'.$helperFile;
+}

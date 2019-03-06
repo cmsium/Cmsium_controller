@@ -1,5 +1,7 @@
 <?php
 
 $router->get('/hello', function() {
-    return 'ZA WARUDO!';
+    $testVar = 'No way!';
+    $pageOutput = view('index')->with(compact('testVar'))->render();
+    return $pageOutput;
 });

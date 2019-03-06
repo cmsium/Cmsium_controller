@@ -4,14 +4,21 @@
  */
 
 /**
- * Константа устанавливает абсолютный путь к корневой директории проекта
+ * An absolute path to apps directory
  */
 define("ROOTDIR", dirname(__DIR__));
 
 /**
- * Константа для определения пути к настройкам по умолчанию
+ * Main settings file path
  */
 define("SETTINGS_PATH", ROOTDIR."/config/config.ini");
+
+/**
+ * A list of helper function files to include
+ */
+define("HELPERS", [
+    'main.php'
+]);
 
 define ("FILES_ALLOWED_TYPES",['jpg','jpeg','png','pdf','doc','docx','txt','diff']);
 

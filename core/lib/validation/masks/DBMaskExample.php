@@ -8,8 +8,8 @@
 
 namespace Validation\masks;
 
-class DBMaskExample extends DB {
-    public $dbStructure = [
+class DBMaskExample extends DefaultMask {
+    public $structure = [
         'body' => ["type" => "varchar" , "args" => [255], "required" => true, "nullable" => true],
         'article_id' => ["type" => "integer" , "args" => [11], "required" => true, "nullable" => true],
         'user_id' => ["type" => "integer" , "args" => [11], "required" => true, "nullable" => true]

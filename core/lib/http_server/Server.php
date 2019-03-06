@@ -3,13 +3,12 @@
 namespace HttpServer;
 
 use Config\ConfigManager;
-use Router\Router;
 use swoole_http_server;
 
 class Server {
 
     public $swooleServer;
-    public $router;
+    public $application;
 
     private $host;
     private $port;
@@ -18,8 +17,8 @@ class Server {
     private $sslKey;
     private $http2;
 
-    public function __construct(Router $router) {
-        $this->router = $router;
+    public function __construct(SwooleHttpApplication $application) {
+        $this->application = $application;
 
         $config = ConfigManager::module('http');
 
@@ -68,17 +67,13 @@ class Server {
             $this->initiateSwooleServer();
         }
 
-        // TODO: Request logger?
         $this->swooleServer->on("request", function ($request, $response) {
-            $swooleRequest = new SwooleRequest($request);
-            // TODO: Use application-level Response class instead plain return
             try {
-                $responseString = $this->router->route($swooleRequest);
+                $this->application->handle($request, $response);
             } catch (\Exception $exception) {
-                // TODO: Use error handling lib?
-                $responseString = $exception->getMessage();
+                $message = $exception->getMessage();
+                $response->end($message.PHP_EOL);
             }
-            $response->end($responseString.PHP_EOL);
         });
 
         return $this;

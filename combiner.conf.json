@@ -9,6 +9,8 @@
     "lib/files.p",
     "lib/config",
     "lib/validation",
-    "lib/http_server"
+    "lib/http_server",
+    "lib/webgear",
+    "lib/presenter"
   ]
 }
