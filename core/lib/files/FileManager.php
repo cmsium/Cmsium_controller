@@ -56,6 +56,7 @@ class FileManager {
             $this->files[] = $path;
             return $path;
         } else {
+            // TODO: Set exception explicitly
             throw new Exception("File must extend 'File' class");
         }
     }

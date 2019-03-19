@@ -12,6 +12,12 @@ include ROOTDIR.'/app/routes.php';
 // Build and load application instance
 $application = \Webgear\Swoole\Application::getInstance($router);
 
+// Register middleware callbacks
+$plumber = \Plumber\Plumber::getInstance();
+$pre = $plumber->buildPipeline('webgear.pre');
+$post = $plumber->buildPipeline('webgear.post');
+include ROOTDIR.'/app/middleware.php';
+
 // Load helper functions. Add file to helpers array to load it.
 foreach (HELPERS as $helperFile) {
     include ROOTDIR.'/helpers/'.$helperFile;

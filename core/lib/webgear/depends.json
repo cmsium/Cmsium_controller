@@ -1,4 +1,5 @@
 [
   "lib/http_server",
-  "lib/router"
+  "lib/router",
+  "lib/plumber"
 ]

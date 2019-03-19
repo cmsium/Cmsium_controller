@@ -21,7 +21,7 @@ class Validator {
 
     public function addMask($mask) {
         if (is_string($mask)) {
-            $className = "Validation\\masks\\" . $mask;
+            $className = "App\\Validation\\Masks\\" . $mask;
             $this->mask = new $className();
         } else {
             $this->mask = $mask;

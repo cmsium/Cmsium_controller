@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Router;
+namespace App\Controllers;
 
 class Example {
 
-    use Routable;
+    use \Router\Routable;
 
-    public function hello($user,$some){
-        var_dump("test",$user,$some,$this->request);
+    public function hello(){
+        var_dump("test");
     }
 
 }
