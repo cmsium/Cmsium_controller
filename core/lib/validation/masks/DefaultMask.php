@@ -36,18 +36,18 @@ class DefaultMask implements Mask {
     }
 
     public function getRequired ($field) {
-        return $field['required'];
+        return $field['required'] ?? false;
     }
 
     public function getNullable ($field) {
-        return $field['nullable'];
+        return $field['nullable'] ?? false;
     }
 
     public function getType ($field) {
-        return $field['type'];
+        return $field['type'] ?? false;
     }
 
     public function getArgs ($field) {
-        return $field['args'];
+        return $field['args'] ?? [];
     }
 }

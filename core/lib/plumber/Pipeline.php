@@ -17,7 +17,11 @@ class Pipeline {
 
     public function run(...$arguments) {
         foreach ($this->pipes as $pipe) {
-            $pipe(...$arguments);
+            $result = $pipe(...$arguments);
+            // If false is returned, "break" the chain
+            if ($result === false) {
+                break;
+            }
         }
         return $this;
     }

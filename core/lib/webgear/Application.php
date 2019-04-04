@@ -9,11 +9,12 @@ use Plumber\Plumber;
  *
  * @package Webgear
  */
-class Application {
+abstract class Application {
 
     public $router;
     public $request;
     public $response;
+    public $appDirectory = 'app';
 
     public static $instance;
 
@@ -30,7 +31,7 @@ class Application {
         $this->router = $router;
 
         // Register psr-4 autoloader for app classes
-        $this->registerAppClassesLoader('app');
+        $this->registerAppClassesLoader($this->appDirectory);
     }
 
     /**
@@ -58,7 +59,7 @@ class Application {
      *
      * To be implemented by children.
      */
-    protected function run(){}
+    abstract protected function run();
 
     /**
      * Finishes the request-response cycle by throwing away a response to web-server
@@ -67,7 +68,7 @@ class Application {
      *
      * @param $result mixed Result of business logic
      */
-    protected function finish($result){}
+    abstract protected function finish($result);
 
     protected function runMiddleware($context) {
         $argument = $context === 'pre' ? $this->request : $this->response;
@@ -76,7 +77,7 @@ class Application {
         $plumber->runPipeline("webgear.$context", $argument);
     }
 
-    private function registerAppClassesLoader($directory) {
+    protected function registerAppClassesLoader($directory) {
         $loader = new Autoloader;
         $loader->addNamespace('App', ROOTDIR."/$directory");
         $loader->register();

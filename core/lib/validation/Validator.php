@@ -1,4 +1,5 @@
 <?php
+namespace Validation;
 
 use validation\exceptions\WrongMaskException;
 use Validation\Field;

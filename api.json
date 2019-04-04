@@ -3,7 +3,7 @@
   "info": {
     "title": "File Controller Service API",
     "description": "Service is used to control workflow between file system's microservices. This API is specified for a microservice version of a controller, but it can be used as a part of programming interface.",
-    "version": "0.1.1",
+    "version": "0.1.0",
     "contact": {
       "email": "gren236@gmail.com"
     }
@@ -18,8 +18,9 @@
       "get": {
         "summary": "Returns a file server URL to read file from.",
         "description": "Responds a URL that user should be followed to get the requested file. Checks auth if needed.",
+        "operationId": "getFile",
         "tags": [
-          "file"
+          "File"
         ],
         "responses": {
           "200": {
@@ -62,7 +63,8 @@
             "description": "An id of the file to download",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "md5"
             },
             "style": "simple"
           },
@@ -82,8 +84,9 @@
       "delete": {
         "summary": "Deletes a file info from controller.",
         "description": "Deletes file meta info from a controller service if something goes wrong during upload.",
+        "operationId": "deleteFile",
         "tags": [
-          "file"
+          "File"
         ],
         "responses": {
           "200": {
@@ -119,8 +122,9 @@
       "post": {
         "summary": "Requests file upload.",
         "description": "Sends request to write a file to a file server.",
+        "operationId": "uploadFile",
         "tags": [
-          "file"
+          "File"
         ],
         "responses": {
           "200": {
@@ -222,7 +226,7 @@
   },
   "tags": [
     {
-      "name": "file",
+      "name": "File",
       "description": "Single file operations"
     }
   ]

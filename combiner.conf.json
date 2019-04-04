@@ -3,6 +3,7 @@
   "destination_dir": "core",
   "libraries": [
     "utils/migrator",
+    "utils/openapi",
     "lib/database",
     "lib/database.p",
     "lib/files",

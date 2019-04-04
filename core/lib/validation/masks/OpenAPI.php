@@ -10,6 +10,7 @@ namespace validation\masks;
 
 
 class OpenAPI extends DefaultMask {
+    // TODO: change aliaces to aliases
     public $aliaces = [
         "integer" => "integer",
         "int32" => "integer",

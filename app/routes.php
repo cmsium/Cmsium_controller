@@ -1,7 +1,4 @@
 <?php
-
-$router->get('/hello', function() {
-    $testVar = 'No way!';
-    $pageOutput = view('index')->with(compact('testVar'))->render();
-    return $pageOutput;
-});
+$router->get("/file/{id}", "FileController", "getFile");
+$router->delete("/file/{id}", "FileController", "deleteFile");
+$router->post("/file", "FileController", "uploadFile");

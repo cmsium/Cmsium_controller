@@ -30,6 +30,7 @@ class File {
 
     public function generateId() {
         $this->id = md5($this->name.microtime(true));
+        return $this->id;
     }
 
     public function read(...$args) {

@@ -46,12 +46,14 @@ class Application extends GeneralApplication implements SwooleHttpApplication {
             case 'boolean':
             case 'array':
             case 'object':
+                $this->setHeader('Content-Type', 'application/json');
                 $result = json_encode($response);
                 break;
 
             case 'string':
             case 'integer':
             case 'double':
+                $this->setHeader('Content-Type', 'text/plain');
                 $result = (string)$response;
                 break;
 

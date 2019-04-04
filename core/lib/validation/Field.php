@@ -54,7 +54,7 @@ class Field {
                 return true;
             }
         } else {
-            if (empty($this->value)){
+            if (empty($this->value) and $this->value !== 0 and $this->value !== "0" and $this->value !== 0.0){
                 $this->error = $this->nullableMessage;
                 return false;
             } else {
@@ -73,7 +73,7 @@ class Field {
     }
 
     public function __call($method, $args) {
-        $className = "Validation\\types\\" . $method;
+        $className = "Validation\\types\\" . ucfirst($method);
         $callbackClass = new $className();
         if ($callbackClass instanceof ValidationType) {
             $callbackClass->args = $args;
