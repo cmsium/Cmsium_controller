@@ -40,9 +40,17 @@ class FileManager {
 
     public function get($key = null) {
         if ($key) {
-            return $this->files[$key];
+            return $this->files[$key] ?? null;
         } else {
             return $this->files;
+        }
+    }
+
+    public function getUpload($key = null) {
+        if ($key) {
+            return $this->uploadFiles[$key] ?? null;
+        } else {
+            return $this->uploadFiles;
         }
     }
 

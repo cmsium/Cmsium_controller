@@ -23,7 +23,7 @@ class File {
 
     public function with($data) {
         foreach ($data as $key => $value){
-            $this->key = $value;
+            $this->$key = $value;
         }
         return $this;
     }

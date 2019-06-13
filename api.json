@@ -178,7 +178,9 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "Varchar",
+                    "maxLength": 255
                   },
                   "size": {
                     "type": "integer",

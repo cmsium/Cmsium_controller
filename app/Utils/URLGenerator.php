@@ -29,7 +29,7 @@ class URLGenerator {
         $this->generateSalt();
         $host = trim($this->host, '/').'/';
         $path = empty($this->path) ? '' : trim($this->path, '/').'/';
-        $hash = base64_encode($this->seed.$this->salt);
+        $hash = base64_encode(md5($this->seed).$this->salt);
         $this->hash = $hash;
         $result = $host.$path.$hash;
         return $result;

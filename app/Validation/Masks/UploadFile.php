@@ -8,6 +8,8 @@ public $structure =
     'properties' => [
         'name' => [
             'type' => 'string',
+            'format' => 'Varchar',
+            'maxLength' => 255
         ],
         'size' => [
             'type' => 'integer',

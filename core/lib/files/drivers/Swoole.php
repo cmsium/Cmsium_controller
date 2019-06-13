@@ -40,11 +40,11 @@ class Swoole {
     }
 
     public function read($file,$callback) {
-        $this->exists($file->path);
+        $this->exists($file);
         if ($file->size <= $this->memory_limit){
             swoole_async_readfile($file->path,$callback);
         } else {
-            swoole_async_read($file->path,$callback);
+            swoole_async_read($file->path,$callback, $this->memory_limit);
         }
     }
 
@@ -55,25 +55,26 @@ class Swoole {
     }
 
     public function delete($file) {
-        $this->exists($file->path);
+        $this->exists($file);
         if (!unlink($file->path)) {
             throw new CanNotDeleteFileException();
         }
         return true;
     }
 
-    public function send($file,$response) {
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="'.$file->name.'"');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . $file->size);
-        return $response->sendfile($file->name);
+    public function send($file,$app) {
+        $app->setHeader('Content-Description', 'File Transfer');
+        $app->setHeader('Content-Type', 'application/octet-stream');
+        $app->setHeader('Content-Disposition', 'attachment; filename="'.$file->name.'"');
+        $app->setHeader('Expires', '0');
+        $app->setHeader('Cache-Control', 'must-revalidate');
+        $app->setHeader('Pragma', 'public');
+        $app->setHeader('Content-Length', "$file->size");
+        //return $response->sendfile($file->path);
+        return $app->respondFile($file->path);
     }
 
-    public function sendChunked($file, $response, $chunkSize) {
+    public function sendChunked($file, $app, $chunkSize) {
         $filesize = $file->size;
         $from = 0;
         $to = $filesize;
@@ -81,19 +82,19 @@ class Swoole {
             $range = substr($_SERVER['HTTP_RANGE'], strpos($_SERVER['HTTP_RANGE'], '=')+1);
             $from = (integer)(strtok($range, "-"));
             $to = (integer)(strtok("-"));
-            header('HTTP/1.1 206 Partial Content');
-            header('Content-Range: bytes '.$from.'-'.($to-1).'/'.$filesize);
+            $app->setStatusCode(206);
+            $app->setHeader('Content-Range', 'bytes '.$from.'-'.($to-1).'/'.$filesize);
         } else {
-            header('HTTP/1.1 200 Ok');
+            $app->setStatusCode(200);
         }
-        header('Accept-Ranges: bytes');
-        header('Content-Length: ' . ($filesize-$from));
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . $file->name . '";');
+        $app->setHeader('Accept-Ranges', 'bytes');
+        $app->setHeader('Content-Length', ($filesize-$from));
+        $app->setHeader('Content-Type', 'application/octet-stream');
+        $app->setHeader('Content-Disposition', 'attachment; filename="' . $file->name . '";');
         $size = $to - $from;
         $offset = 0;
         while($offset < $size) {
-            $response->sendfile($file->path, $offset, $chunkSize);
+            $app->respondFile($file->path, $offset, $chunkSize);
             $offset += $chunkSize;
         }
         fclose($file);

@@ -12,17 +12,13 @@ require_once "Route.php";
 require_once "Request.php";
 require_once "example.php";
 
-
-$request = new Request();
-
 $router = new Router();
+$request = new Request();
 $router->defineCallbackHandler(new customCallbackHandler());
 
 $router->get("/users/{user}", function ($user) use ($request) {
     var_dump($user);
 });
-
-$router->get("/pets", "Example", "hello")->before("hi")->after("qwe");
-
+$router->post("/pets", "Example", "hello")->before("hi")->after("qwe");
 
 $router->route($request);

@@ -3,6 +3,7 @@
 namespace Webgear;
 
 use Plumber\Plumber;
+use Router\Router;
 
 /**
  * Class Application (Singleton)
@@ -27,8 +28,11 @@ abstract class Application {
         return static::$instance;
     }
 
-    public function __construct($router) {
+    public function __construct(Router $router) {
         $this->router = $router;
+
+        // Define callback handler
+        $router->defineCallbackHandler(new AppCallbackHandler());
 
         // Register psr-4 autoloader for app classes
         $this->registerAppClassesLoader($this->appDirectory);
@@ -40,6 +44,7 @@ abstract class Application {
     public function handle($request, $response) {
         $this->request = $request;
         $this->response = $response;
+        $this->response->isFile = false;
 
         // Run pre-business middleware (request callbacks)
         $this->runMiddleware('pre');

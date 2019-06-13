@@ -6,8 +6,8 @@ create table files_info
   size int(12) null,
   url varchar(255),
   server_host varchar(255),
-  uploaded_at timestamp not null,
-  touched_at timestamp not null,
+  uploaded_at timestamp DEFAULT CURRENT_TIMESTAMP,
+  touched_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   constraint files_info_files_users_file_id_fk
     foreign key (file_id) references files_users (file_id)
 );

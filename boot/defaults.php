@@ -17,7 +17,8 @@ define("SETTINGS_PATH", ROOTDIR."/config/config.ini");
  * A list of helper function files to include
  */
 define("HELPERS", [
-    'main.php'
+    'main.php',
+    'utils.php'
 ]);
 
 define ("FILES_ALLOWED_TYPES",['jpg','jpeg','png','pdf','doc','docx','txt','diff']);

@@ -1,28 +1,38 @@
 <?php
 // Bootstrapping the whole application
+use App\Utils\SwooleServerCache;
+use Config\ConfigManager;
+use DB\MysqlConnection;
+use Plumber\Plumber;
+use Router\Router;
+use Webgear\Swoole\Application;
 
 // Load core libraries
 require_once dirname(__DIR__).'/boot/defaults.php';
 require_once ROOTDIR.'/core/autoload.php';
 
+// Build and load application instance
+$router = new Router;
+$application = Application::getInstance($router);
+
 // Load app routes
-$router = new \Router\Router;
 include ROOTDIR.'/app/routes.php';
 
-// Build and load application instance
-$application = \Webgear\Swoole\Application::getInstance($router);
-
 // Register middleware callbacks
-$plumber = \Plumber\Plumber::getInstance();
+$plumber = Plumber::getInstance();
 $pre = $plumber->buildPipeline('webgear.pre');
 $post = $plumber->buildPipeline('webgear.post');
+$auth = $plumber->buildPipeline('routes.auth');
 include ROOTDIR.'/app/middleware.php';
 
 // Load app-specific configuration
-$application->config = \Config\ConfigManager::module('app');
+$application->config = ConfigManager::module('app');
 
 // Create MySQL connection
-$application->db = new \DB\MysqlConnection();
+$application->db = new MysqlConnection();
+
+// Initiate a swoole table for server info caching
+$application->serversCache = SwooleServerCache::getInstance();
 
 // Load helper functions. Add file to helpers array to load it.
 foreach (HELPERS as $helperFile) {

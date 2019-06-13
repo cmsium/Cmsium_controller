@@ -10,6 +10,9 @@ namespace Router;
 
 
 interface CallbackHandler {
-    public function before ();
+
+    public function before();
+
     public function after();
+
 }

@@ -18,7 +18,7 @@ class customCallbackHandler implements CallbackHandler {
     }
 
     public function after() {
-        return function ($string) {
+        return function () {
             return false;
         };
     }
