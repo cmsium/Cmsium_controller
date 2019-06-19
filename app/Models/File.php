@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use App\Exceptions\FileModelException;
+use App\Utils\FileServerRequest;
+use App\Utils\URLGenerator;
+use DateInterval;
+use DateTime;
 
 /**
  * Class File
@@ -26,6 +30,7 @@ class File {
 
     private $filesInfoTable = 'files_info';
     private $filesUsersTable = 'files_users';
+    private $urlGenerator = null;
 
     public function __construct($id = null) {
         if ($id) {
@@ -96,10 +101,77 @@ class File {
         return $this;
     }
 
+    public function destroy() {
+        if (!$this->isLoaded()) {
+            throw new FileModelException('File does not exist in DB!');
+        }
+
+        db()->startTransaction();
+
+        // Delete from files info
+        $result = db()->delete(
+            "DELETE FROM {$this->filesInfoTable} WHERE file_id='{$this->file_id}';"
+        );
+        if (!$result) {
+            db()->rollback();
+            throw new FileModelException('Could not delete from DB!');
+        }
+
+        // Delete from files users
+        $result = db()->delete(
+            "DELETE FROM {$this->filesUsersTable} WHERE file_id='{$this->file_id}';"
+        );
+        if (!$result) {
+            db()->rollback();
+            throw new FileModelException('Could not delete from DB!');
+        }
+
+        db()->commit();
+        $this->exists = false;
+        return $this;
+    }
+
     public function generateId() {
         $id = md5($this->real_name.$this->extension.$this->size.time());
         $this->file_id = $id;
         return $id;
+    }
+
+    public function generateURL($host) {
+        if (!$this->file_id) {
+            $this->generateId();
+        }
+
+        $urlGenerator = new URLGenerator('file', $this->file_id, $host);
+        $this->urlGenerator = $urlGenerator;
+        $url = $urlGenerator->generate();
+        $this->url = $url;
+        return $url;
+    }
+
+    public function sendMetaToFileServer($type, $temp = true) {
+        // Check if generator or hash exists
+        if ($this->urlGenerator) {
+            $hash = $this->urlGenerator->hash;
+        } else {
+            if (!$this->url) {
+                throw new FileModelException('URLGenerator object not defined!');
+            }
+
+            $urlArray = explode('/', $this->url);
+            $hash = end($urlArray);
+        }
+
+        $expire = (new DateTime('now'))->add(DateInterval::createFromDateString(config('hash_expire')));
+
+        $payload = [
+            'hash' => $hash,
+            'temp' => $temp,
+            'expire' => $expire->format(DateTime::RFC3339),
+            'type' => $type
+        ];
+        $request = new FileServerRequest($this->server_host, $payload);
+        $request->post('meta');
     }
 
     public function __get($name) {

@@ -11,6 +11,7 @@ public $structure =
         'required' => true,
         'schema' => [
             'type' => 'string',
+            'format' => 'md5',
         ],
         'style' => 'simple',
     ],

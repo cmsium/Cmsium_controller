@@ -69,7 +69,7 @@
             "style": "simple"
           },
           {
-            "name": "user_token",
+            "name": "x-user-token",
             "in": "header",
             "description": "A token to identify the user. Can be a OAuth2.0 token or a proprietary one.",
             "required": true,
@@ -82,8 +82,8 @@
         ]
       },
       "delete": {
-        "summary": "Deletes a file info from controller.",
-        "description": "Deletes file meta info from a controller service if something goes wrong during upload.",
+        "summary": "Initiates file deletion from servers.",
+        "description": "Deletes file meta info from controller, and the file from file server.",
         "operationId": "deleteFile",
         "tags": [
           "File"
@@ -109,11 +109,22 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "name": "x-user-token",
+            "in": "header",
+            "description": "A token to identify the user. Can be a OAuth2.0 token or a proprietary one.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            },
+            "style": "simple"
           }
         ],
         "security": [
           {
-            "fileServerAuth": []
+            "clientAuth": []
           }
         ]
       }
@@ -154,7 +165,7 @@
         },
         "parameters": [
           {
-            "name": "user_token",
+            "name": "x-user-token",
             "in": "header",
             "description": "A token to identify the user. Can be a OAuth2.0 token or a proprietary one.",
             "required": true,
@@ -199,6 +210,44 @@
           }
         }
       }
+    },
+    "/service/file/{id}": {
+      "delete": {
+        "summary": "Deletes a file info from controller.",
+        "description": "Deletes file meta info from a controller service if something goes wrong during upload.",
+        "operationId": "deleteFile",
+        "tags": [
+          "FileService"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "An id of the file to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "security": [
+          {
+            "fileServerAuth": []
+          }
+        ]
+      }
     }
   },
   "externalDocs": {
@@ -229,7 +278,11 @@
   "tags": [
     {
       "name": "File",
-      "description": "Single file operations"
+      "description": "Single file client operations"
+    },
+    {
+      "name": "FileService",
+      "description": "Internal system file operations"
     }
   ]
 }

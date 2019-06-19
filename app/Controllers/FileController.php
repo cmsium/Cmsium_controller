@@ -3,9 +3,6 @@ namespace App\Controllers;
 
 use App\Models\File;
 use App\Utils\FileServerRequest;
-use App\Utils\URLGenerator;
-use DateInterval;
-use DateTime;
 use Router\Routable;
 use Validation\exceptions\DataFormatException;
 use \Validation\Validator;
@@ -20,7 +17,7 @@ class FileController {
      * @summary Returns a file server URL to read file from.
      * @description Responds a URL that user should be followed to get the requested file. Checks auth if needed.
      */
-    public function getFile ($id) {
+    public function getFile($id) {
         $validator = new Validator(['id' => $id],"GetFile");
         $result = $validator->get();
         $errors = $validator->errors();
@@ -29,7 +26,7 @@ class FileController {
             throw new DataFormatException;
         }
 
-        $file = new File();
+        $file = new File;
         $file->find($id);
 
         // If no file is found, emmit 404
@@ -43,33 +40,49 @@ class FileController {
             return ['url' => $file->url];
         }
 
-        $urlGenerator = new URLGenerator('file', $file->file_id, 'http://'.$file->server_host.'/');
-        $url = $urlGenerator->generate();
-        $expire = (new DateTime('now'))->add(DateInterval::createFromDateString(config('hash_expire')));
+        // Generate unique signed read URL
+        $file->generateURL('http://'.$file->server_host.'/');
 
-        // Send hash to file server
-        $payload = [
-            'hash' => $urlGenerator->hash,
-            'temp' => true,
-            'expire' => $expire->format(DateTime::RFC3339),
-            'type' => 'read'
-        ];
-        $request = new FileServerRequest($file->server_host, $payload);
-        $request->post('meta');
+        $file->sendMetaToFileServer('read');
 
-        return ['url' => $url];
+        return ['url' => $file->url];
     }
 
     /**
-     * @summary Deletes a file info from controller.
-     * @description Deletes file meta info from a controller service if something goes wrong during upload.
+     * @summary Initiates file deletion from servers.
+     * @description Deletes file meta info from controller, and the file from file server.
      */
     public function deleteFile ($id) {
         $validator = new Validator(['id' => $id],"DeleteFile");
         $result = $validator->get();
         $errors = $validator->errors();
-        // TODO: Implement
-        return true;
+
+        if ($errors) {
+            throw new DataFormatException;
+        }
+
+        $file = new File;
+        $file->find($id);
+
+        // If no file is found, emmit 404
+        if (!$file->exists) {
+            app()->response->status(404);
+            return ['error' => 'File not found!'];
+        }
+
+        // Check file URL presence in db. If URL present - push it. If not - generate URL and push it
+        if (!$file->url) {
+            // Generate unique signed delete URL
+            $file->generateURL('http://'.$file->server_host.'/');
+        }
+
+        // Send delete file request to file server
+        $file->sendMetaToFileServer('delete');
+
+        // Delete file meta from DB
+        $file->destroy();
+
+        return 'OK';
     }
 
     /**
@@ -111,24 +124,14 @@ class FileController {
         ];
 
         // Generate unique signed upload URL
-        $urlGenerator = new URLGenerator('file', $file->generateId(), $serverInfo['url']);
-        $url = $urlGenerator->generate();
-        $file->url = $url;
+        $file->generateURL($serverInfo['url']);
 
         // Save file info in DB
         $file->save();
 
-        $expire = (new DateTime('now'))->add(DateInterval::createFromDateString(config('hash_expire')));
         // Push unique hash for upload + file_id + temp flagged
-        $payload = [
-            'hash' => $urlGenerator->hash,
-            'temp' => true,
-            'expire' => $expire->format(DateTime::RFC3339),
-            'type' => 'read'
-        ];
-        $request = new FileServerRequest($file->server_host, $payload);
-        $request->post('meta');
+        $file->sendMetaToFileServer('upload');
 
-        return ['url' => $url];
+        return ['url' => $file->url];
     }
 }
