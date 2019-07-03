@@ -103,10 +103,11 @@ class FileController {
         if (!$serverInfo) {
             // If not, request it from file service
             $fileServiceHost = config('service_host');
-            // TODO: Implement real request when service server is done
-            $request = new FileServerRequest($fileServiceHost, 'Some Payload');
-            $response = $request->get('url');
-            $serverInfo = $response ?? false;
+            $request = new FileServerRequest($fileServiceHost);
+            $response = $request->get('status');
+            // Write data to swoole cache
+            app()->serversCache->setServers($response);
+            $serverInfo = app()->serversCache->getPrioritized();
         }
 
         // Generate File
@@ -119,7 +120,7 @@ class FileController {
             'real_name'   => $fileRealName,
             'extension'   => $fileExtension,
             'size'        => (int)$bakedData['size'],
-            'server_host' => parse_url($serverInfo['url'], PHP_URL_HOST),
+            'server_host' => $serverInfo['url'],
             'user_id'     => app()->request->header['x-user-token']
         ];
 

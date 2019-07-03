@@ -36,7 +36,7 @@ class SwooleServerCache {
 
     public function getPrioritized() {
         // Check if table not empty
-        if ($this->table->exist(0)) {
+        if ($this->table->count() >= 1) {
             foreach($this->table as $row) {
                 if ($row['priority'] <= 0) {
                     return $row;
@@ -45,6 +45,12 @@ class SwooleServerCache {
             return false;
         } else {
             return false;
+        }
+    }
+
+    public function setServers(array $servers) {
+        foreach ($servers as $serverData) {
+            $this->table->set((string)$serverData['id'], $serverData);
         }
     }
 

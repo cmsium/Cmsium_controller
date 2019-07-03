@@ -63,8 +63,7 @@
             "description": "An id of the file to download",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "md5"
+              "type": "string"
             },
             "style": "simple"
           },
@@ -74,8 +73,7 @@
             "description": "A token to identify the user. Can be a OAuth2.0 token or a proprietary one.",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "byte"
+              "type": "string"
             },
             "style": "simple"
           }
@@ -190,7 +188,6 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "format": "Varchar",
                     "maxLength": 255
                   },
                   "size": {

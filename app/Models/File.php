@@ -165,12 +165,14 @@ class File {
         $expire = (new DateTime('now'))->add(DateInterval::createFromDateString(config('hash_expire')));
 
         $payload = [
-            'hash' => $hash,
-            'temp' => $temp,
+            'hash'   => $hash,
+            'file'   => $this->file_id,
+            'temp'   => $temp,
             'expire' => $expire->format(DateTime::RFC3339),
-            'type' => $type
+            'type'   => $type
         ];
         $request = new FileServerRequest($this->server_host, $payload);
+        $request->async = true;
         $request->post('meta');
     }
 
