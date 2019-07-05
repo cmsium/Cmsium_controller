@@ -17,84 +17,84 @@ function loadRecursive($path, $name) {
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/validation', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/validation', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/router', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/router', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/config', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/config', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/http_server', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/http_server', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/plumber', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/plumber', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/database', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/database', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/database.p', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/database.p', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/files', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/files', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/files.p', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/files.p', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/config', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/config', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/validation', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/validation', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/http_server', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/http_server', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/webgear', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/webgear', $className);
 });
 
 spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
-    loadRecursive('/Users/admin/Sites/Cmsium_file_services/Cmsium_controller/core/lib/presenter', $className);
+    loadRecursive(dirname(__DIR__).'/core/lib/presenter', $className);
 });
 

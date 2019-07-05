@@ -16,6 +16,7 @@ abstract class Application {
     public $request;
     public $response;
     public $appDirectory = 'app';
+    public $startupCallbacks = [];
 
     public static $instance;
 
@@ -36,6 +37,24 @@ abstract class Application {
 
         // Register psr-4 autoloader for app classes
         $this->registerAppClassesLoader($this->appDirectory);
+    }
+
+    /**
+     * Run startup sequence of callbacks. Coroutines usage is allowed.
+     */
+    public function startup() {
+        foreach ($this->startupCallbacks as $callback) {
+            $callback();
+        }
+    }
+
+    /**
+     * Add new callback to startup sequence
+     *
+     * @param $callback callable
+     */
+    public function registerStartupCallback($callback) {
+        $this->startupCallbacks[] = $callback;
     }
 
     /**

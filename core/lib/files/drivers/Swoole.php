@@ -3,6 +3,8 @@
 namespace Files\drivers;
 
 use Files\exceptions\CanNotDeleteFileException;
+use Files\exceptions\CanNotReadFileException;
+use Files\exceptions\CanNotWriteFileException;
 use Files\exceptions\CouldNotUploadException;
 use Files\exceptions\FileNotFoundException;
 
@@ -13,8 +15,6 @@ class Swoole {
     public $socket_buffer_size;
     public $socket_dontwait;
 
-    public $memory_limit = 4*1024*1024;
-
     public function __construct($settings = null) {
         if ($settings){
             swoole_async_set($settings);
@@ -22,6 +22,9 @@ class Swoole {
     }
 
     public function upload($oldName, $newName) {
+        if (!is_dir(dirname($newName))) {
+            mkdir(dirname($newName), 0777, true);
+        }
         if (!rename($oldName, $newName)){
             throw new CouldNotUploadException();
         }
@@ -31,22 +34,42 @@ class Swoole {
         if (!is_dir(dirname($file->path))) {
             mkdir(dirname($file->path), 0775, true);
         }
-        if ($file->size <= $this->memory_limit){
-            swoole_async_writefile($file->path, $content);
-        } else {
-            swoole_async_write($file->path, $content, 0);
+        if (!file_put_contents($file->path, $content)) {
+            throw new CanNotWriteFileException();
         }
         return true;
     }
 
-    public function read($file,$callback) {
-        $this->exists($file);
-        if ($file->size <= $this->memory_limit){
-            swoole_async_readfile($file->path,$callback);
-        } else {
-            swoole_async_read($file->path,$callback, $this->memory_limit);
+    public function read($file) {
+        $this->exists($file->path);
+        if (file_get_contents($file->path) === false) {
+            throw new CanNotReadFileException();
         }
     }
+
+
+//    //deprecated
+//    public function write($file, $content) {
+//        if (!is_dir(dirname($file->path))) {
+//            mkdir(dirname($file->path), 0775, true);
+//        }
+//        if ($file->size <= $this->memory_limit){
+//            swoole_async_writefile($file->path, $content);
+//        } else {
+//            swoole_async_write($file->path, $content, 0);
+//        }
+//        return true;
+//    }
+//
+//    //deprecated
+//    public function read($file,$callback) {
+//        $this->exists($file);
+//        if ($file->size <= $this->memory_limit){
+//            swoole_async_readfile($file->path,$callback);
+//        } else {
+//            swoole_async_read($file->path,$callback, $this->memory_limit);
+//        }
+//    }
 
     public function exists($file) {
         if (!file_exists($file->path))
@@ -74,7 +97,7 @@ class Swoole {
         return $app->respondFile($file->path);
     }
 
-    public function sendChunked($file, $app, $chunkSize) {
+    public function sendChunked($file, $app,  $chunkSize) {
         $filesize = $file->size;
         $from = 0;
         $to = $filesize;
@@ -93,10 +116,16 @@ class Swoole {
         $app->setHeader('Content-Disposition', 'attachment; filename="' . $file->name . '";');
         $size = $to - $from;
         $offset = 0;
+        $fh = fopen($file->path, "r");
+        if ($fh === false){
+            throw new CanNotReadFileException();
+        }
         while($offset < $size) {
-            $app->respondFile($file->path, $offset, $chunkSize);
+            $data = fread($fh, $chunkSize);
+            $app->response->write($data);
             $offset += $chunkSize;
         }
-        fclose($file);
+        fclose($fh);
+        return true;
     }
 }

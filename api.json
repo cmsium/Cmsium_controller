@@ -182,7 +182,7 @@
         "requestBody": {
           "description": "An uploaded file meta.",
           "content": {
-            "application/json": {
+            "application/x-www-form-urlencoded": {
               "schema": {
                 "type": "object",
                 "properties": {

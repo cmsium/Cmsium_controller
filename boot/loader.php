@@ -9,7 +9,7 @@ use Webgear\Swoole\Application;
 
 // Load core libraries
 require_once dirname(__DIR__).'/boot/defaults.php';
-require_once ROOTDIR.'/core/autoload.php';
+require_once dirname(__DIR__).'/core/autoload.php';
 
 // Build and load application instance
 $router = new Router;
