@@ -101,4 +101,14 @@ class FileServerRequest {
         }
     }
 
+    public static function requestServersStatus() {
+        // If not, request it from file service
+        $fileServiceHost = config('service_host');
+        $request = new FileServerRequest($fileServiceHost);
+        $response = $request->get('status');
+        // Write data to swoole cache
+        app()->serversCache->setServers($response);
+        return app()->serversCache->getPrioritized();
+    }
+
 }

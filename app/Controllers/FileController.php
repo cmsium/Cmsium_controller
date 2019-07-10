@@ -19,9 +19,7 @@ class FileController {
      */
     public function getFile($id) {
         $validator = new Validator(['id' => $id],"GetFile");
-        $result = $validator->get();
         $errors = $validator->errors();
-
         if ($errors) {
             throw new DataFormatException;
         }
@@ -36,7 +34,7 @@ class FileController {
         }
 
         // Check file URL presence in db. If URL present - respond. If not - generate URL and push it
-        if ($file->url) {
+        if (!$file->temp && $file->url) {
             return ['url' => $file->url];
         }
 
@@ -91,38 +89,24 @@ class FileController {
      */
     public function uploadFile () {
         $validator = new Validator($this->request->getArgs(),"UploadFile");
-        $result = $validator->get();
         $errors = $validator->errors();
-
         if ($errors) {
             throw new DataFormatException;
         }
 
         // Check if server upload info is present in swoole table
-        $serverInfo = app()->serversCache->getPrioritized();
-        if (!$serverInfo) {
-            // If not, request it from file service
-            $fileServiceHost = config('service_host');
-            $request = new FileServerRequest($fileServiceHost);
-            $response = $request->get('status');
-            // Write data to swoole cache
-            app()->serversCache->setServers($response);
-            $serverInfo = app()->serversCache->getPrioritized();
-        }
+        $serverInfo = app()->serversCache->getPrioritized() ?: FileServerRequest::requestServersStatus();
 
         // Generate File
         $file = new File;
         $bakedData = $this->request->getArgs();
-        $fileRealName = implode('.', explode('.', $bakedData['name'], -1));
-        $arrayToPop = explode('.', $bakedData['name']);
-        $fileExtension = array_pop($arrayToPop);
-        $file->properties = [
-            'real_name'   => $fileRealName,
-            'extension'   => $fileExtension,
+        $file->setFileRealProps($bakedData['name']);
+        $file->massAssign([
             'size'        => (int)$bakedData['size'],
             'server_host' => $serverInfo['url'],
-            'user_id'     => app()->request->header['x-user-token']
-        ];
+            'user_id'     => app()->request->header['x-user-token'],
+            'temp'        => $bakedData['temp'] === 'true' ? 1 : 0
+        ]);
 
         // Generate unique signed upload URL
         $file->generateURL($serverInfo['url']);

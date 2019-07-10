@@ -18,6 +18,7 @@ use DateTime;
  * @property string real_name
  * @property string extension
  * @property int size
+ * @property bool temp
  * @property string url
  * @property string server_host
  * @property string uploaded_at
@@ -82,15 +83,15 @@ class File {
             ARRAY_FILTER_USE_KEY
         );
 
-        $result = db()->insert(
-            'INSERT INTO '
+        $query = 'INSERT INTO '
             .$this->filesInfoTable
             .'('
             .implode(', ', array_keys($filteredArray))
             .') VALUES ('
             .rtrim(str_repeat('?,', count($filteredArray)), ',')
-            .');'
-        , array_values($filteredArray));
+            .');';
+
+        $result = db()->insert($query, array_values($filteredArray));
         if (!$result) {
             db()->rollback();
             throw new FileModelException('Could not write to DB!');
@@ -174,6 +175,25 @@ class File {
         $request = new FileServerRequest($this->server_host, $payload);
         $request->async = true;
         $request->post('meta');
+    }
+
+    /**
+     * Set file properties based on
+     *
+     * @param $filename
+     * @return File
+     */
+    public function setFileRealProps($filename) {
+        $fileRealName = implode('.', explode('.', $filename, -1));
+        $arrayToPop = explode('.', $filename);
+        $fileExtension = array_pop($arrayToPop);
+        $this->real_name = $fileRealName;
+        $this->extension = $fileExtension;
+        return $this;
+    }
+
+    public function massAssign(array $data) {
+        $this->properties = $this->properties + $data;
     }
 
     public function __get($name) {

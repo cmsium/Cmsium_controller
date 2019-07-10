@@ -15,10 +15,14 @@ public $structure =
             'type' => 'integer',
             'format' => 'int64',
         ],
+        'temp' => [
+            'type' => 'boolean'
+        ]
     ],
     'required' => [
         0 => 'name',
         1 => 'size',
+        2 => 'temp'
     ],
     'example' => [
         'name' => 'some_file.txt',

@@ -4,6 +4,7 @@ create table files_info
   real_name varchar(255) null,
   extension varchar(255) not null,
   size int(12) null,
+  temp bool not null default false,
   url varchar(255),
   server_host varchar(255),
   uploaded_at timestamp DEFAULT CURRENT_TIMESTAMP,
