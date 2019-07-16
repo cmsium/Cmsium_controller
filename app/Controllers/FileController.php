@@ -100,12 +100,13 @@ class FileController {
         // Generate File
         $file = new File;
         $bakedData = $this->request->getArgs();
+        $temp = $bakedData['temp'] === 'true' ? 1 : 0;
         $file->setFileRealProps($bakedData['name']);
         $file->massAssign([
             'size'        => (int)$bakedData['size'],
             'server_host' => $serverInfo['url'],
             'user_id'     => app()->request->header['x-user-token'],
-            'temp'        => $bakedData['temp'] === 'true' ? 1 : 0
+            'temp'        => $temp
         ]);
 
         // Generate unique signed upload URL
@@ -115,7 +116,7 @@ class FileController {
         $file->save();
 
         // Push unique hash for upload + file_id + temp flagged
-        $file->sendMetaToFileServer('upload');
+        $file->sendMetaToFileServer('upload', $temp);
 
         return ['url' => $file->url];
     }

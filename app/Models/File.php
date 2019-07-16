@@ -150,7 +150,7 @@ class File {
         return $url;
     }
 
-    public function sendMetaToFileServer($type, $temp = true) {
+    public function sendMetaToFileServer($type, $temp = 1) {
         // Check if generator or hash exists
         if ($this->urlGenerator) {
             $hash = $this->urlGenerator->hash;
@@ -178,7 +178,7 @@ class File {
     }
 
     /**
-     * Set file properties based on
+     * Set file properties based on real file name
      *
      * @param $filename
      * @return File
