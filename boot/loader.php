@@ -1,9 +1,13 @@
 <?php
+// Load external dependencies
+require_once dirname(__DIR__).'/vendor/autoload.php';
+
 // Bootstrapping the whole application
 use App\Utils\SwooleServerCache;
 use Config\ConfigManager;
 use DB\MysqlConnection;
 use Plumber\Plumber;
+use Presenter\PageBuilder;
 use Router\Router;
 use Webgear\Swoole\Application;
 
@@ -34,7 +38,20 @@ $application->db = new MysqlConnection();
 // Initiate a swoole table for server info caching
 $application->serversCache = SwooleServerCache::getInstance();
 
+// Add error handler to application
+$application->errorHandler = new \Errors\AppErrorHandler(
+    $application,
+    PageBuilder::getInstance(),
+    'error'
+);
+
 // Load helper functions. Add file to helpers array to load it.
 foreach (HELPERS as $helperFile) {
     include ROOTDIR.'/helpers/'.$helperFile;
+}
+
+// TODO: Rework app environments handling
+// Load AppTestCase if app env is test
+if ($application->config->get('env') == 'test') {
+    require_once ROOTDIR.'/tests/AppTestCase.php';
 }

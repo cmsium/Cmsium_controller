@@ -13,8 +13,13 @@ use Router\Router;
 abstract class Application {
 
     public $router;
+    public $server;
     public $request;
     public $response;
+    /**
+     * @var \Errors\AppErrorHandler
+     */
+    public $errorHandler;
     public $appDirectory = 'app';
     public $startupCallbacks = [];
 
@@ -65,14 +70,18 @@ abstract class Application {
         $this->response = $response;
         $this->response->isFile = false;
 
-        // Run pre-business middleware (request callbacks)
-        $this->runMiddleware('pre');
+        try {
+            // Run pre-business middleware (request callbacks)
+            $this->runMiddleware('pre');
 
-        // Run app business logic, generating result
-        $result = $this->run();
+            // Run app business logic, generating result
+            $result = $this->run();
 
-        // Run post-business middleware (response callbacks)
-        $this->runMiddleware('post');
+            // Run post-business middleware (response callbacks)
+            $this->runMiddleware('post');
+        } catch (\Exception $exception) {
+            $result = $this->errorHandler->handle($exception);
+        }
 
         // Finish request-response iteration
         $this->finish($result);

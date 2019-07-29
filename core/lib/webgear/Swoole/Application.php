@@ -9,6 +9,8 @@ use Webgear\Exceptions\InvalidDataTypeException;
 
 class Application extends GeneralApplication implements SwooleHttpApplication {
 
+    public $server;
+
     protected function run() {
         $request = new SwooleRequest($this->request);
         return $this->router->route($request);
@@ -26,6 +28,18 @@ class Application extends GeneralApplication implements SwooleHttpApplication {
     public function setHeader($key, $value) {
         $this->response->header($key, $value);
         return $this;
+    }
+
+    public function getHeader($key) {
+        if (!isset($this->response->header[$key])) {
+            return false;
+        }
+
+        return $this->response->header[$key];
+    }
+
+    public function getHeaders() {
+        return $this->response->header;
     }
 
     public function setCookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false) {

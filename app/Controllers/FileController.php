@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Exceptions\ValidationException;
 use App\Models\File;
 use App\Utils\FileServerRequest;
 use Router\Routable;
@@ -21,7 +22,7 @@ class FileController {
         $validator = new Validator(['id' => $id],"GetFile");
         $errors = $validator->errors();
         if ($errors) {
-            throw new DataFormatException;
+            throw new ValidationException($errors);
         }
 
         $file = new File;
@@ -50,13 +51,13 @@ class FileController {
      * @summary Initiates file deletion from servers.
      * @description Deletes file meta info from controller, and the file from file server.
      */
-    public function deleteFile ($id) {
+    public function deleteFile($id) {
         $validator = new Validator(['id' => $id],"DeleteFile");
         $result = $validator->get();
         $errors = $validator->errors();
 
         if ($errors) {
-            throw new DataFormatException;
+            throw new ValidationException($errors);
         }
 
         $file = new File;
@@ -87,11 +88,11 @@ class FileController {
      * @summary Requests file upload.
      * @description Sends request to write a file to a file server.
      */
-    public function uploadFile () {
+    public function uploadFile() {
         $validator = new Validator($this->request->getArgs(),"UploadFile");
         $errors = $validator->errors();
         if ($errors) {
-            throw new DataFormatException;
+            throw new ValidationException($errors);
         }
 
         // Check if server upload info is present in swoole table

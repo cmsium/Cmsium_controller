@@ -12,6 +12,7 @@
     "lib/validation",
     "lib/http_server",
     "lib/webgear",
-    "lib/presenter"
+    "lib/presenter",
+    "lib/testgear"
   ]
 }

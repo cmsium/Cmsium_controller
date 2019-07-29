@@ -61,6 +61,10 @@ class File {
     }
 
     public function save() {
+        if (!$this->file_id) {
+            $this->generateId();
+        }
+
         if ($this->isLoaded()) {
             throw new FileModelException('File already saved in DB!');
         }
@@ -163,15 +167,19 @@ class File {
             $hash = end($urlArray);
         }
 
-        $expire = (new DateTime('now'))->add(DateInterval::createFromDateString(config('hash_expire')));
-
         $payload = [
             'hash'   => $hash,
             'file'   => $this->file_id,
             'temp'   => $temp,
-            'expire' => $expire->format(DateTime::RFC3339),
             'type'   => $type
         ];
+
+        // If persistent, no expire needed
+        if (!$temp) {
+            $expire = (new DateTime('now'))->add(DateInterval::createFromDateString(config('hash_expire')));
+            $payload['expire'] = $expire->format(DateTime::RFC3339);
+        }
+
         $request = new FileServerRequest($this->server_host, $payload);
         $request->async = true;
         $request->post('meta');

@@ -7,7 +7,7 @@ function loadRecursive($path, $name) {
     $isPhp = (isset(pathinfo($item)["extension"]) && pathinfo($item)["extension"] === "php");
 
     if (is_file($item) && $isPhp && (basename($item) == "$name.php")) {
-          include $item;
+          include_once $item;
         } elseif (is_dir($item)) {
           loadRecursive($item, $name);
         }
@@ -42,6 +42,18 @@ spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
     loadRecursive(dirname(__DIR__).'/core/lib/plumber', $className);
+});
+
+spl_autoload_register(function ($className) {
+    $classNameArray = explode('\\', $className);
+    $className = array_pop($classNameArray);
+    loadRecursive(dirname(__DIR__).'/core/lib/errors', $className);
+});
+
+spl_autoload_register(function ($className) {
+    $classNameArray = explode('\\', $className);
+    $className = array_pop($classNameArray);
+    loadRecursive(dirname(__DIR__).'/core/lib/webgear', $className);
 });
 
 spl_autoload_register(function ($className) {
@@ -96,5 +108,11 @@ spl_autoload_register(function ($className) {
     $classNameArray = explode('\\', $className);
     $className = array_pop($classNameArray);
     loadRecursive(dirname(__DIR__).'/core/lib/presenter', $className);
+});
+
+spl_autoload_register(function ($className) {
+    $classNameArray = explode('\\', $className);
+    $className = array_pop($classNameArray);
+    loadRecursive(dirname(__DIR__).'/core/lib/testgear', $className);
 });
 
